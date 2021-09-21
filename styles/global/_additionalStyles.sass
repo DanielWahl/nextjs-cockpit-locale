@@ -1,0 +1,101 @@
+@use "../abstracts" as *
+@use "sass:math"
+
+//----------------------------------
+//        ADDITIONAL STYLES        -
+//----------------------------------
+
+.relative
+	position: relative
+.absolute
+	position: absolute
+
+.w
+	&-100
+		width: 100%
+	&-80
+		width: 80%
+	&-75
+		width: 75%
+	&-66
+		width: 66.66%
+	&-50
+		width: 50%
+	&-33
+		width: 33.33%
+	&-25
+		width: 25%
+
+.w--mobile
+	&-100
+		@include media-below(phone)
+			width: 100%
+	&-80
+		@include media-below(phone)
+			width: 80%
+	&-75
+		@include media-below(phone)
+			width: 75%
+	&-66
+		@include media-below(phone)
+			width: 66.66%
+	&-50
+		@include media-below(phone)
+			width: 50%
+	&-33
+		@include media-below(phone)
+			width: 33.33%
+	&-25
+		@include media-below(phone)
+			width: 25%
+
+.background-color
+	&--primary
+		background: $primary
+	&--secondary
+		background: $secondary
+	&--third
+		background: $third
+	&--white
+		background: white
+	&--black
+		background: black
+
+.marginTop
+	margin-top: 1rem
+	&--big
+		margin-top: 3rem
+	&--veryBig
+		margin-top: 5rem
+	&--none
+		padding-top: 0
+
+.marginBottom
+	margin-bottom: 1rem
+	&--big
+		margin-bottom: 3rem
+	&--veryBig
+		margin-bottom: 5rem
+	&--none
+		padding-top: 0
+
+.paddingTop
+	padding-top: 1rem
+	&--big
+		padding-top: 3rem
+	&--veryBig
+		padding-top: 5rem
+	&--none
+		padding-top: 0
+
+.paddingBottom
+	padding-bottom: 1rem
+	&--big
+		padding-bottom: 3rem
+	&--veryBig
+		padding-bottom: 5rem
+	&--none
+		padding-top: 0
+
+.border-radius
+	border-radius: $borderRadiusHalf

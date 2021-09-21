@@ -1,0 +1,28 @@
+@use "../abstracts" as *
+@use "../layouts" as *
+
+//----------------------------------
+//              FOOTER             -
+//----------------------------------
+
+#footer, .footer__main
+	background: $black
+	color: $white
+	@include safearea()
+
+	ul
+		@extend .flex, .flex--gap
+
+		li
+			list-style: none
+			&:before
+				content: none
+
+			.navLink
+				color: white
+
+				&:hover, &.active
+					font-weight: 600
+					text-decoration: none
+
+

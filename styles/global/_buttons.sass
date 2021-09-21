@@ -1,0 +1,231 @@
+@use "../abstracts" as *
+@use "sass:math"
+
+//----------------------------------
+//             BUTTONS             -
+//----------------------------------
+
+.button, .wp-block-button
+	margin: 1rem 0
+	cursor: pointer
+
+	a, .button-link, .wp-block-button__link
+		background: $lightPrimary
+		color: $darkLight
+		padding: 1rem
+		margin: 1rem 0
+		border-radius: math.div($borderRadiusSize, 4)
+		cursor: pointer
+		border: 2px solid white
+		-webkit-box-shadow: 0 0 20px -6px rgba(0,0,0,0.75)
+		-moz-box-shadow: 0 0 20px -6px rgba(0,0,0,0.75)
+		box-shadow: 0 0 20px -6px rgba(0,0,0,0.75)
+		transition: $transition-default
+		text-decoration: none
+
+
+		&:hover, &:focus
+			text-decoration: none
+			-webkit-box-shadow: 0 0 1px 4px rgba($primary,0.75)
+			-moz-box-shadow: 0 0 1px 4px rgba($primary,0.75)
+			box-shadow: 0 0 1px 4px rgba($primary,0.75)
+			outline: none
+
+	&.font--big, &.is-style-font--big
+		font-size: 1.3rem
+
+
+
+	//Additional shadow
+	&.shadow, &.is-style-shadow .wp-block-button__link
+		-webkit-box-shadow: 0 0 20px -6px rgba(0,0,0,0.75)
+		-moz-box-shadow: 0 0 20px -6px rgba(0,0,0,0.75)
+		box-shadow: 0 0 20px -6px rgba(0,0,0,0.75)
+		transition: $transition-default
+
+		&:hover, &:focus
+			-webkit-box-shadow: 0 0 1px 4px rgba($primary,0.75)
+			-moz-box-shadow: 0 0 1px 4px rgba($primary,0.75)
+			box-shadow: 0 0 1px 4px rgba($primary,0.75)
+			outline: none
+			//-webkit-box-shadow: 0 0 20px -3px rgba(0,0,0,0.75)
+			//-moz-box-shadow: 0 0 20px -3px rgba(0,0,0,0.75)
+			//box-shadow: 0 0 20px -3px rgba(0,0,0,0.75)
+
+
+	&.shadow--hover, &.is-style-shadow--hover .wp-block-button__link
+		transition: $transition-default
+		&:hover, &:focus
+			-webkit-box-shadow: 0 0 1px 4px rgba($primary,0.75)
+			-moz-box-shadow: 0 0 1px 4px rgba($primary,0.75)
+			box-shadow: 0 0 1px 4px rgba($primary,0.75)
+			outline: none
+
+	// Grey/NotActive Button
+	&.grey, &.notActive, &.is-style-grey .wp-block-button__link
+		background: $lightPrimary
+		color: $darkLight
+		border: none
+		padding: .5rem
+		margin: 1rem
+		border-radius: math.div($borderRadiusSize, 2)
+		cursor: pointer
+
+	//Lightgrey Button
+	&.lightgrey, &.is-style-lightgrey .wp-block-button__link
+		background: $lightBackground
+		color: $darkLight
+		border: none
+		padding: .5rem
+		margin: 1rem
+		border-radius: math.div($borderRadiusSize,2)
+		cursor: pointer
+
+	// Additional White border
+	&.whiteBorder, &.border--white, &.is-style-whiteborder .wp-block-button__link
+		border: 2px solid white
+
+	// Active State
+	&.active
+		color: $primary !important
+		background: $secondary !important
+	//Primary bg-color
+	&.primary, &.active, &.selected, &.is-style-primary .wp-block-button__link
+		background: $primary
+		color: $textLight
+		border: none
+		padding: 1rem 1.5rem
+		margin: 1rem
+		border-radius: math.div($borderRadiusSize, 2)
+		cursor: pointer
+
+	&.primary--hover
+		transition: $transition-default
+		&:hover
+			background: $primaryHover
+
+	//Primary bg-color
+	&.secondary, &.is-style-secondary .wp-block-button__link
+		background: $secondary
+		color: $textDark
+		border: none
+		padding: 1rem 1.5rem
+		margin: 1rem
+		border-radius: math.div($borderRadiusSize, 2)
+		cursor: pointer
+
+	&.secondary--hover
+		transition: $transition-default
+		&:hover
+			background: $secondaryHover
+
+	//Primary font color
+	&.color--primary, .arrow--primary, &.is-style-color--primary .wp-block-button__link
+		color: $primary
+
+
+	// Empty
+	&.empty
+		background: transparent
+		border: none
+		padding: 1rem
+		border-radius: math.div($borderRadiusSize, 2)
+		font-family: AdventPro
+		font-weight: 600
+		text-transform: uppercase
+		font-size: 1.8rem
+
+	// Underline hover:
+	&.underline--hover
+		transition: $transition-default
+		overflow: hidden
+		@include pseudo($loc:after, $bottom: 0, $left: 0)
+			width: 100%
+			transform: translateX(-110%)
+			transition: $transition-default
+			height: 2px
+			background: black
+		&:hover
+			@include pseudo($loc:after, $bottom: 0, $left: 0)
+				width: 100%
+				transform: translateX(0%)
+
+
+	// Primary w/  shadow
+	&.is-style-primary-shadow .wp-block-button__link
+		border: 2px solid $primary
+		background: $primary
+		color: $textLight
+		padding: .5rem
+		margin: 1rem
+		border-radius: math.div($borderRadiusSize, 2)
+		cursor: pointer
+
+		-webkit-box-shadow: 0 0 20px -6px rgba(0,0,0,0.75)
+		-moz-box-shadow: 0 0 20px -6px rgba(0,0,0,0.75)
+		box-shadow: 0 0 20px -6px rgba(0,0,0,0.75)
+		transition: $transition-default
+
+		&:hover, &:focus
+			-webkit-box-shadow: 0 0 1px 4px rgba($primary,0.75)
+			-moz-box-shadow: 0 0 1px 4px rgba($primary,0.75)
+			box-shadow: 0 0 1px 4px rgba($primary,0.75)
+			outline: none
+
+	// Lightgrey w/ border & shadow
+	&.is-style-lightgrey-border-shadow .wp-block-button__link
+		border: 2px solid white
+		background: $lightBackground
+		color: $darkLight
+		padding: .5rem
+		margin: 1rem
+		border-radius: math.div($borderRadiusSize, 2)
+		cursor: pointer
+
+		-webkit-box-shadow: 0 0 20px -6px rgba(0,0,0,0.75)
+		-moz-box-shadow: 0 0 20px -6px rgba(0,0,0,0.75)
+		box-shadow: 0 0 20px -6px rgba(0,0,0,0.75)
+		transition: $transition-default
+
+		&:hover, &:focus
+			-webkit-box-shadow: 0 0 1px 4px rgba($primary,0.75)
+			-moz-box-shadow: 0 0 1px 4px rgba($primary,0.75)
+			box-shadow: 0 0 1px 4px rgba($primary,0.75)
+			outline: none
+
+	&.margin--inline--small
+		margin-left: .5rem
+		margin-right: .5rem
+
+	&.color--secondary
+		color: $secondary
+
+	.language
+		position: absolute
+		top: 0.3rem
+		right: 0.3rem
+		font-size: .8rem
+
+
+
+
+
+.button--primary--shadow
+	background: $primary
+	color: $textLight
+	border: none
+	padding: .5rem
+	margin: 1rem 0
+	border-radius: math.div($borderRadiusSize, 2)
+	cursor: pointer
+
+	-webkit-box-shadow: 0 0 20px -6px rgba(0,0,0,0.75)
+	-moz-box-shadow: 0 0 20px -6px rgba(0,0,0,0.75)
+	box-shadow: 0 0 20px -6px rgba(0,0,0,0.75)
+	transition: $transition-default
+
+	&:hover, &:focus
+		-webkit-box-shadow: 0 0 1px 4px rgba($primary,0.75)
+		-moz-box-shadow: 0 0 1px 4px rgba($primary,0.75)
+		box-shadow: 0 0 1px 4px rgba($primary,0.75)
+		outline: none

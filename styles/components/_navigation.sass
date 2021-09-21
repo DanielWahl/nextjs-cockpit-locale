@@ -1,0 +1,201 @@
+@use "../abstracts" as *
+@use "../layouts" as *
+
+//----------------------------------
+//            NAVIGATION           -
+//----------------------------------
+
+.navSpacer
+	height: $navHeight
+
+nav#mainNav
+	background: $primary
+	height: $navHeight
+	color: white
+	z-index: $zNavigation
+	padding: 0 1rem
+
+	@include safearea()
+
+	&.fixed
+		position: fixed
+		width: 100%
+		transition: $transition-default
+
+		&.hidden
+			transform: translateY(-100%)
+
+	.nav__wrapper
+		height: $navHeight
+
+		@include media-below(tablet)
+			width: $navHeight
+
+		input.mobileCheckbox
+			width: $navHeight
+			height: $navHeight
+			display: none
+			top: 0
+			right: .5rem
+			opacity: 0
+			cursor: pointer
+			-webkit-touch-callout: none
+			z-index: 2
+
+			position: absolute
+
+
+			@include media-below(tablet)
+				display: block
+
+			@media screen and (orientation: landscape) and (max-width: $tablet)
+				right: env(safe-area-inset-right)
+
+
+		.nav__inner
+			height: $navHeight
+			@include media-below(tablet)
+				display: none
+
+
+
+			ul, .mainNav__list
+				@extend .flex
+				@extend .flex--gap
+				@extend .flex-center--vertical
+				height: $navHeight
+
+				li
+					@extend .flex
+					@extend .flex-center--vertical
+					list-style: none
+					position: relative
+					overflow: hidden
+
+
+					.navLink
+						padding: .45rem .3rem
+						color: $white
+						text-decoration: none
+						overflow: hidden
+						z-index: 0
+						border: 3px solid transparent
+
+						@include pseudo($left: 0, $bottom: 0)
+							height: 3px
+							width: 50%
+							background: $white
+							transform: translateX(-105%)
+							overflow: hidden
+							transition: $transition-default
+							z-index: -1
+
+						&:hover, &:focus-visible, &.active
+							&:before
+								transform: translateX(0)
+						&:focus-visible
+							border: 3px solid $white
+							outline: none
+
+
+
+
+
+		span.mobileToggle
+			width: 32px
+			height: 3px
+			top: 0
+			position: absolute
+			background: $white
+			//border-radius: 3px
+			z-index: 1
+			transform-origin: 4px 0
+			transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0), background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0), opacity 0.55s ease
+
+			margin-bottom: 5px
+			//margin-left: calc(100% - 4rem)
+
+			display: none
+			@media screen and (max-width: $tablet)
+				display: block
+
+
+			&:first-of-type
+				margin-top: .8rem
+				transform-origin: 0% 0%
+
+
+			&:nth-of-type(2)
+				margin-top: 1.3rem
+				transform-origin: 0% 100%
+
+
+			&:nth-of-type(3)
+				margin-top: 1.8rem
+
+
+
+
+		input.mobileCheckbox:checked
+			&~ span.mobileToggle
+				opacity: 1
+				transform: rotate(45deg) translate(0px, -6px)
+				background: $white
+
+
+			&~ span.mobileToggle:nth-of-type(2)
+				opacity: 0
+				transform: rotate(0deg) scale(0.2, 0.2)
+
+
+			&~ span.mobileToggle:nth-of-type(3)
+				transform: rotate(-45deg) translate(0, -1px)
+
+
+			&~ .nav__inner
+				display: block
+				height: auto
+				width: 100%
+				background: $primary
+				top: $navHeight
+				position: absolute
+				left: 0
+				z-index: 100
+				border-bottom: 1px solid $white
+				padding: 1rem 0
+
+				ul
+					@extend .flex-direction--column
+					@extend .flex--no-gap
+					height: auto
+					width: 100%
+					padding-left: 0
+
+					li
+						@extend .flex
+						width: calc(100% - 2rem)
+						height: calc(100% + 2rem)
+
+						.navLink
+							width: 100%
+							transition: $transition-default
+							padding: .5rem 1rem
+
+							&:before
+								content: none
+
+							&:hover, &:focus-visible
+								background: $primaryHover
+								border: 2px solid transparent
+
+
+	.header__social
+		@extend .flex
+		@extend .flex-center--vertical
+
+		@include media-below(tablet)
+			display: none
+
+		a
+			color: $textLight
+
