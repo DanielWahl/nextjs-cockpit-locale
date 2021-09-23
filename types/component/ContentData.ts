@@ -1,6 +1,6 @@
 import ComponentSettings from "./ComponentSettings";
 
 export default interface ContentData {
-    children: any;
+    childrenData: any;
     settings: ComponentSettings;
 }

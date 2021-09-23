@@ -1,4 +1,4 @@
-import ComponentLink from "./../settings/siteSettings";
+import SiteSettings from "./../settings/SiteSettings";
 
 export default interface PageProps {
     data?: any;

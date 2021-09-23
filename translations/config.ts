@@ -10,6 +10,8 @@ export const languageNames = {
 export const languagePaths = [
     {
         params: { lang: "en" },
+    },
+    {
         params: { lang: "lu" },
     },
 ];

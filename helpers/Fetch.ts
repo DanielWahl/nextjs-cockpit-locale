@@ -137,4 +137,4 @@ class Fetch {
     }
 }
 
-export default Fetch = new Fetch();
+export default new Fetch();
