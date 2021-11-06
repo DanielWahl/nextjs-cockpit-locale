@@ -3,7 +3,7 @@ import Layout from "../../components/Layout/Layout";
 import Content from "../../components/Content/Content";
 import PageProps from "../../types/page/PageProps";
 import Fetch from "../../helpers/Fetch";
-import HTMLHead from "../../components/Page/HTMLHead";
+import HTMLHead from "../../components/Global/HTMLHead";
 import withLocale from "../../hocs/withLocale";
 import { languagePaths } from "../../translations/config";
 

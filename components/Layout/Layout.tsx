@@ -1,6 +1,6 @@
 import React from "react";
-import Footer from "../Page/Footer";
-import Header from "../Page/Header";
+import Footer from "../Global/Footer";
+import Header from "../Global/Header";
 import PageProps from "../../types/page/PageProps";
 
 interface Props extends PageProps {

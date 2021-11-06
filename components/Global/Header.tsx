@@ -1,6 +1,5 @@
 import React from "react";
 import Navigation from "./Navigation";
-import Vars from "../../helpers/Vars";
 
 interface Props {
     data?: any;

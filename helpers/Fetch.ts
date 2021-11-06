@@ -135,6 +135,41 @@ class Fetch {
                 return res.entries;
             });
     }
+
+    async postForm(data, setIsSend, setWasSuccessful) {
+        await fetch(process.env.API + "api/forms/submit/contact", {
+            method: "post",
+            headers: {
+                "Content-Type": "application/json",
+                "Cockpit-Token": process.env.TOKEN,
+            },
+            body: JSON.stringify({
+                form: {
+                    name: data.name,
+                    lastName: data.lastName,
+                    email: data.email,
+                    phone: data.phone,
+                    message: data.message,
+                },
+            }),
+        })
+            .then((entry) => {
+                //console.log(entry);
+                if (entry.ok) {
+                    setIsSend(true);
+                    setWasSuccessful(true);
+                } else {
+                    setIsSend(true);
+                    setWasSuccessful(false);
+                }
+            })
+            .catch((entry) => {
+                console.error(entry);
+                setIsSend(true);
+                setWasSuccessful(false);
+            });
+        setIsSend(true);
+    }
 }
 
 export default new Fetch();

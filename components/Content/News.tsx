@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import Vars from "../../helpers/Vars";
 import ArticleData from "../../types/singleComponents/ArticleData";
 import Link from "next/link";
 
@@ -38,7 +37,9 @@ const News = (props: Props) => {
                     <Link href={article.slug}>
                         <div className="news_container">
                             <img
-                                src={Vars.domain + article.headerimage?.path}
+                                src={
+                                    process.env.API + +article.headerimage?.path
+                                }
                                 alt={article.title}
                             />
                             <div className="news_details">
@@ -88,7 +89,7 @@ const News = (props: Props) => {
                                     <div className="news_container_three">
                                         <img
                                             src={
-                                                Vars.domain +
+                                                process.env.API +
                                                 article.headerimage.path
                                             }
                                             alt={article.title}

@@ -10,6 +10,11 @@
 	flex-wrap: wrap
 	flex-direction: row
 
+	&-column-center
+		flex-direction: column
+		align-items: center
+		justify-content: center
+
 	&--main
 		justify-content: center
 
@@ -65,3 +70,4 @@
 		@include media-below(phone)
 			div, a, p
 				width: 100%
+

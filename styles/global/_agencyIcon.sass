@@ -1,0 +1,41 @@
+.footer__logo
+	height: 2rem
+	width: auto
+	min-width: 50px
+	position: absolute
+	bottom: 1rem
+	right: 1rem
+
+	a
+		display: flex
+		flex-direction: row
+		align-content: center
+
+		.footer__logo__desc
+			color: rgba(0,0,0,0.4)
+			font-size: .8rem
+			padding-right: .5rem
+			transition: all .3s ease
+			&:hover
+				text-decoration: none
+				border: none
+
+		.logo--svg
+			height: 2rem
+			width: auto
+
+			path
+				stroke: rgba(0,0,0,0.4)
+				transition: all .3s ease
+
+		&:hover
+			text-decoration: none
+			border: none
+			.footer__logo__desc
+				color: rgba(0,0,0,1)
+				text-decoration: none
+				border: none
+			.logo--svg path
+				stroke: rgba(0,0,0,1)
+
+

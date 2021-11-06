@@ -1,9 +1,9 @@
 import React from "react";
-import Vars from "../../helpers/Vars";
 import ContentComponentData from "../../types/component/ContentComponentData";
+import PageProps from "../../types/page/PageProps";
 
-const Image = ({ settings }: ContentComponentData) => {
-    let imageUrl = Vars.domain + settings.image?.path;
+const Image: React.FC<ContentComponentData> = ({ settings }) => {
+    let imageUrl = process.env.API + settings.image?.path;
 
     return (
         <div className="component-image">

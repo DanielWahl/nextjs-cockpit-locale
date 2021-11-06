@@ -48,14 +48,19 @@
 			-moz-box-shadow: 0 0 1px 4px rgba($primary,0.75)
 			box-shadow: 0 0 1px 4px rgba($primary,0.75)
 			outline: none
-			//-webkit-box-shadow: 0 0 20px -3px rgba(0,0,0,0.75)
-			//-moz-box-shadow: 0 0 20px -3px rgba(0,0,0,0.75)
-			//box-shadow: 0 0 20px -3px rgba(0,0,0,0.75)
+	//-webkit-box-shadow: 0 0 20px -3px rgba(0,0,0,0.75)
+	//-moz-box-shadow: 0 0 20px -3px rgba(0,0,0,0.75)
+	//box-shadow: 0 0 20px -3px rgba(0,0,0,0.75)
 
 
 	&.shadow--hover, &.is-style-shadow--hover .wp-block-button__link
 		transition: $transition-default
-		&:hover, &:focus
+		&:hover
+			-webkit-box-shadow: 0 0 1px 4px rgba($primary,0.75)
+			-moz-box-shadow: 0 0 1px 4px rgba($primary,0.75)
+			box-shadow: 0 0 1px 4px rgba($primary,0.75)
+			outline: none
+		&:focus-visible
 			-webkit-box-shadow: 0 0 1px 4px rgba($primary,0.75)
 			-moz-box-shadow: 0 0 1px 4px rgba($primary,0.75)
 			box-shadow: 0 0 1px 4px rgba($primary,0.75)
@@ -89,6 +94,7 @@
 	&.active
 		color: $primary !important
 		background: $secondary !important
+
 	//Primary bg-color
 	&.primary, &.active, &.selected, &.is-style-primary .wp-block-button__link
 		background: $primary
@@ -96,12 +102,15 @@
 		border: none
 		padding: 1rem 1.5rem
 		margin: 1rem
-		border-radius: math.div($borderRadiusSize, 2)
+		border-radius: $borderRadius
 		cursor: pointer
+		font-weight: 300
 
 	&.primary--hover
 		transition: $transition-default
 		&:hover
+			background: $primaryHover
+		&:hover, &:focus-visible
 			background: $primaryHover
 
 	//Primary bg-color
@@ -114,10 +123,39 @@
 		border-radius: math.div($borderRadiusSize, 2)
 		cursor: pointer
 
+	&.secondary-og--hover
+		transition: $transition-default
+		&:hover
+			background: $secondary
+			color: $black
+		&:focus-visible
+			background: $secondary
+			color: $black
+
 	&.secondary--hover
 		transition: $transition-default
 		&:hover
 			background: $secondaryHover
+		&:focus-visible
+			background: $secondaryHover
+
+	&.dark
+		background: $black
+		color: $white
+		border-radius: 2rem
+		padding: .75rem 1.8rem
+		border: 0
+		outline: none
+		transition: $transition-default
+
+		&:hover
+			background: $third
+			color: $black
+		&:focus-visible
+			background: $third
+			color: $black
+
+
 
 	//Primary font color
 	&.color--primary, .arrow--primary, &.is-style-color--primary .wp-block-button__link
@@ -130,7 +168,6 @@
 		border: none
 		padding: 1rem
 		border-radius: math.div($borderRadiusSize, 2)
-		font-family: AdventPro
 		font-weight: 600
 		text-transform: uppercase
 		font-size: 1.8rem

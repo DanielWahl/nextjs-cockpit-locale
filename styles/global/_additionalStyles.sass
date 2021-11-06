@@ -9,8 +9,22 @@
 	position: relative
 .absolute
 	position: absolute
+.overflow-hidden
+	overflow: hidden
 
+.h
+	&-min
+		&--100vh
+			min-height: 100vh
+		&--80vh
+			min-height: 80vh
+		&--60vh
+			min-height: 60vh
+		&--content
+			min-height: calc(100vh - #{$navHeight} - 100px)
 .w
+	&-100vw
+		width: 100vw
 	&-100
 		width: 100%
 	&-80
@@ -60,6 +74,49 @@
 		background: white
 	&--black
 		background: black
+	&--grey
+		background: $lightBackground
+
+.background-color__phone
+	&--primary
+		@include media-below(phone)
+			background: $primary
+	&--secondary
+		@include media-below(phone)
+			background: $secondary
+	&--third
+		@include media-below(phone)
+			background: $third
+	&--white
+		@include media-below(phone)
+			background: white
+	&--black
+		@include media-below(phone)
+			background: black
+	&--grey
+		@include media-below(phone)
+		background: $lightBackground
+
+.background-color__tablet
+	&--primary
+		@include media-below(tablet)
+			background: $primary
+	&--secondary
+		@include media-below(tablet)
+			background: $secondary
+	&--third
+		@include media-below(tablet)
+			background: $third
+	&--white
+		@include media-below(tablet)
+			background: white
+	&--black
+		@include media-below(tablet)
+			background: black
+	&--grey
+		@include media-below(tablet)
+			background: $lightBackground
+
 
 .marginTop
 	margin-top: 1rem
@@ -68,7 +125,21 @@
 	&--veryBig
 		margin-top: 5rem
 	&--none
-		padding-top: 0
+		margin-top: 0
+	&--none--mobile
+		@include media-below(tablet)
+			margin-top: 0
+.marginRight
+	margin-right: 1rem
+	&--big
+		margin-right: 3rem
+	&--veryBig
+		margin-right: 5rem
+	&--none
+		margin-right: 0
+	&--none--mobile
+		@include media-below(tablet)
+			margin-right: 0
 
 .marginBottom
 	margin-bottom: 1rem
@@ -77,16 +148,50 @@
 	&--veryBig
 		margin-bottom: 5rem
 	&--none
-		padding-top: 0
+		margin-top: 0
+	&--none--mobile
+		@include media-below(tablet)
+			margin-bottom: 0
+.marginLeft
+	margin-left: 1rem
+	&--big
+		margin-left: 3rem
+	&--veryBig
+		margin-left: 5rem
+	&--none
+		margin-left: 0
+		&--important
+			margin-left: 0 !important
+		&--mobile
+			@include media-below(tablet)
+				margin-left: 0
 
 .paddingTop
 	padding-top: 1rem
+
 	&--big
 		padding-top: 3rem
+		&--mobile
+			@include media-below(phone)
+				padding-top: 3rem
 	&--veryBig
 		padding-top: 5rem
+		&--mobile
+			@include media-below(phone)
+				padding-top: 5rem
+	&--ultra
+		padding-top: 7rem
+		&--mobile
+			@include media-below(phone)
+				padding-top: 7rem
 	&--none
 		padding-top: 0
+		&--mobile
+			@include media-below(phone)
+				padding-top: 0
+	&--mobile
+		@include media-below(phone)
+			padding-top:  1rem
 
 .paddingBottom
 	padding-bottom: 1rem
@@ -96,6 +201,11 @@
 		padding-bottom: 5rem
 	&--none
 		padding-top: 0
+		&--mobile
+			@include media-below(phone)
+				padding-bottom: 0
+
+
 
 .border-radius
 	border-radius: $borderRadiusHalf
