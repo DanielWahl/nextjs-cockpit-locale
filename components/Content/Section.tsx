@@ -32,39 +32,41 @@ const defaultComponents: any = {
 };
 
 const Section = (props: NormalProps) => {
-    let { children, data } = props;
+    let { childrenData, data } = props;
 
     return (
         <section className={`page-components`}>
-            {children &&
-                children.map((component: ContentComponentData, j: number) => {
-                    const comp_name = component.component;
-                    const comp_settings = component.settings;
-                    const comp_children = component.children || [];
-                    const comp_columns = component.columns || [];
+            {childrenData &&
+                childrenData.map(
+                    (component: ContentComponentData, j: number) => {
+                        const comp_name = component.component;
+                        const comp_settings = component.settings;
+                        const comp_children = component.children || [];
+                        const comp_columns = component.columns || [];
 
-                    if (defaultComponents[comp_name] === undefined) {
-                        return null;
-                    }
+                        if (defaultComponents[comp_name] === undefined) {
+                            return null;
+                        }
 
-                    const NewComponent = defaultComponents[comp_name];
+                        const NewComponent = defaultComponents[comp_name];
 
-                    return (
-                        <div
-                            className="frame"
-                            key={`component__${j}__${randomNumber}`}
-                        >
-                            <NewComponent
-                                {...props}
-                                name={comp_name}
-                                settings={comp_settings}
-                                childrenData={comp_children}
-                                columns={comp_columns}
-                                data={data}
-                            />
-                        </div>
-                    );
-                })}
+                        return (
+                            <div
+                                className="frame"
+                                key={`component__${j}__${randomNumber}`}
+                            >
+                                <NewComponent
+                                    {...props}
+                                    name={comp_name}
+                                    settings={comp_settings}
+                                    childrenData={comp_children}
+                                    columns={comp_columns}
+                                    data={data}
+                                />
+                            </div>
+                        );
+                    },
+                )}
         </section>
     );
 };
