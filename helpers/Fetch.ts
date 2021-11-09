@@ -28,13 +28,13 @@ class Fetch {
                 let result = [];
                 res.data.entries.forEach((page) => {
                     if (
-                        page.alias === "" ||
-                        page.alias === null ||
-                        page.alias === undefined
+                        page.slug === "" ||
+                        page.slug === null ||
+                        page.slug === undefined
                     ) {
-                        page.alias = page.name.toLowerCase();
+                        page.slug = page.name.toLowerCase();
                     }
-                    if (page.alias === "/") page.alias = "";
+                    if (page.slug === "/") page.slug = "";
                     result.push(page);
                 });
                 /*console.log("------open PAGE------");
@@ -54,7 +54,7 @@ class Fetch {
                     "Cockpit-Token": process.env.TOKEN,
                 },
                 data: {
-                    filter: { published: true, alias: name },
+                    filter: { published: true, slug: name },
                 },
             })
             .then((res) => {
@@ -71,7 +71,7 @@ class Fetch {
                     "Cockpit-Token": process.env.TOKEN,
                 },
                 data: {
-                    filter: { alias: "404" },
+                    filter: { slug: "404" },
                 },
             })
             .then((res) => {
