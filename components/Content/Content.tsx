@@ -1,6 +1,7 @@
 import React from "react";
 import ContentColumn from "./ContentColumn";
 import { randomNumber } from "../../helpers/randomNumber";
+import useTranslation from "../../hooks/useTranslation";
 
 const grid = {
     0: "",
@@ -18,7 +19,12 @@ interface Props {
 }
 
 const Content = ({ data, allPages, siteSettings, slides }: Props) => {
-    let content = data?.content;
+    let content;
+    const { locale } = useTranslation();
+
+    if (locale === "en" && data?.content_en) content = data?.content_en;
+    else content = data?.content;
+
     // @ts-ignore
     let gridColumns = grid[content?.length];
 
