@@ -1,3 +1,10 @@
+# Next.js - Cockpit - Locale Template
+
+This is a simple default template to create a localised Next.js/React project with CockpitCMS as an headless integration.
+
+
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
