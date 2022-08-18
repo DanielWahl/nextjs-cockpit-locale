@@ -5,21 +5,20 @@ import PageProps from "../../types/page/PageProps";
 import Fetch from "../../helpers/Fetch";
 import HTMLHead from "../../components/Global/HTMLHead";
 import withLocale from "../../hocs/withLocale";
-import { languagePaths } from "../../translations/config";
 
 const Home: React.FC<PageProps> = (props) => {
     return (
         <Layout>
-            <HTMLHead> </HTMLHead>
+            <HTMLHead></HTMLHead>
             <Content {...props} data={props.page} />
         </Layout>
     );
 };
 
 export async function getServerSideProps({ params }) {
-    const siteSettings = await Fetch.fetchSiteSettings();
-    const page = await Fetch.fetchPage("/");
-    const errorPage = await Fetch.fetchErrorPage();
+    const siteSettings = (await Fetch.fetchSiteSettings()) ?? null;
+    const page = null; //await Fetch.fetchPage("/");
+    const errorPage = null; //await Fetch.fetchErrorPage();
 
     return {
         props: {

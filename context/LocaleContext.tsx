@@ -12,10 +12,10 @@ export const LocaleContext = createContext<ContextProps>({
     setLocale: () => null,
 });
 
-export const LocaleProvider: React.FC<{ lang: Locale }> = ({
-    lang,
-    children,
-}) => {
+export const LocaleProvider: React.FC<{
+    lang: Locale;
+    children?: React.ReactChild | React.ReactChild[];
+}> = ({ lang, children }) => {
     const [locale, setLocale] = useState(lang);
     const { query } = useRouter();
 

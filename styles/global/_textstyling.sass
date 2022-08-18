@@ -7,31 +7,84 @@
 .uppercase
 	text-transform: uppercase
 
-.color--dark
-	color: $textDark
+.color
+	&--dark
+		color: $textDark
+	&--light
+		color: $textLight
+	&--primary
+		color: $primary
+	&--secondary
+		color: $secondary
+	&--accent
+		color: $accent
+	&--success
+		color: forestgreen
 
-.color--light
-	color: $textLight
+.border-color
+	&--dark
+		border-color: $textDark
+	&--light
+		border-color: $textLight
+	&--primary
+		border-color: $primary
+	&--secondary
+		border-color: $secondary
+	&--accent
+		border-color: $accent
+	&--success
+		border-color: forestgreen
 
 .text--center, .align--center
 	text-align: center
 
-.strong, .bold
-	font-weight: 800
+.text--left, .align--left
+	text-align: left
+
+.text--right, .align--right
+	text-align: right
+
+.strong, .bold, strong
+	font-weight: 700
+
+.capital
+	text-transform: capitalize
+.uppercase
+	text-transform: uppercase
+.lowercase
+	text-transform: lowercase
+
+.fs
+	&--sm, &--small
+		font-size: .8rem
+
 
 
 
 /**** FONT ****/
 h1
-	color: $secondary
-	font-family: Exo, sans-serif
+	color: $primary
+	font-family: "Plus Jakarta Sans", sans-serif
 	font-size: 3.2rem
+	font-weight: 300
+
+	@include media-below(phone)
+		font-size: 2.3rem
+
+	&.bold
+		font-weight: 700
+	&.light
+		font-weight: 300
+
 
 h2
 	color: $textDark
-	font-family: Exo, sans-serif
+	font-family: "Plus Jakarta Sans", sans-serif
 	font-size: 2rem
-	font-weight: 200
+	font-weight: 400
+
+	@include media-below(phone)
+		font-size: 1.8rem
 
 
 	&.center
@@ -67,6 +120,13 @@ h1, h2, h3, h4, h5
 p
 	padding: 0
 	//font-weight: 200
+	font-family: "Plus Jakarta Sans", sans-serif
+	font-weight: 400
+	font-size: 1rem
+	color: $textDark
+
+	position: relative
+	z-index: 0
 
 	&.paddingVertical, &.is-style-padding-vertical
 		padding: 1rem 0
@@ -88,8 +148,26 @@ p
 
 a
 	text-decoration: none
+	outline: none
+	font-family: "Plus Jakarta Sans", sans-serif
+	cursor: pointer
+	border-bottom: 1px solid transparent
+	transition: $transition-default
 
-	&:hover
-		text-decoration: underline
+p > a, .document a, footer .content > a
+	color: $primary
+	//border-bottom: 1px solid transparent
+	transition: $transition-default
+	overflow: hidden
+	font-weight: 700
+	z-index: 0
+	display: flex
+	width: fit-content
 
+	&:hover, &:focus
+		&::before
+			transform: translate(1rem, 1rem)
+			animation: link-anim-in .3s ease
 
+strong
+	font-weight: 700

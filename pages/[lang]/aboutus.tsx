@@ -11,7 +11,7 @@ import { languagePaths } from "../../translations/config";
 const AboutUs: React.FC<PageProps> = (props) => {
     return (
         <Layout>
-            <HTMLHead> </HTMLHead>
+            <HTMLHead></HTMLHead>
             <Content {...props} data={props.page} />
         </Layout>
     );

@@ -12,13 +12,11 @@ const ErrorPage: React.FC<PageProps> = (props) => {
     const { locale } = useTranslation();
 
     return (
-        <Layout siteSettings={props.siteSettings}>
+        <Layout siteSettings={props.siteSettings ?? null}>
             <HTMLHead
-                title={props.siteSettings.name}
-                description={props.siteSettings.description}
-            >
-                {" "}
-            </HTMLHead>
+                title={props.siteSettings?.name}
+                description={props.siteSettings?.description}
+            ></HTMLHead>
 
             <div className="flex flex-column-center paddingBottom--veryBig flex--gap--big paddingTop--veryBig h-min--content">
                 <h1>404 Page not found</h1>

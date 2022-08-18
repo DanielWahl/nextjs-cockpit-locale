@@ -1,6 +1,7 @@
 import React from "react";
 import { Scrollchor } from "react-scrollchor";
 import PageProps from "../../types/page/PageProps";
+import AgencyIcon from "./AgencyIcon";
 
 const Footer = ({ siteSettings }: PageProps) => {
     return (
@@ -18,6 +19,7 @@ const Footer = ({ siteSettings }: PageProps) => {
                     }}
                 />
             </div>
+            <AgencyIcon />
         </footer>
     );
 };

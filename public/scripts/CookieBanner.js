@@ -52,97 +52,97 @@ class CookieBanner {
         // language=CSS
         this.stylesheet.appendChild(
             document.createTextNode(`
-            .danielwahl_cookiebanner {
-                display: flex;
-                flex-wrap: wrap;
-                box-sizing: border-box;
-                width: 500px;
-                background: ${this.options.popupBackground};
-                color: ${this.options.popupColor};
-                position: fixed;
-                bottom: 25px;
-                left: 25px;
-                padding: 0.5rem 1rem;
-                font-size: 1rem;
-                align-itemsQu: center;
-                font-family: sans-serif;
-                transition: all 0.3s ease-in-out;
-                z-index: 100000;
-                border-radius: 10px;
-            }
-            @media screen and (max-width: 720px) {
                 .danielwahl_cookiebanner {
-                    width: calc(100% - 50px);
+                    display: flex;
+                    flex-wrap: wrap;
+                    box-sizing: border-box;
+                    width: 500px;
+                    background: ${this.options.popupBackground};
+                    color: ${this.options.popupColor};
+                    position: fixed;
+                    bottom: 25px;
+                    left: 25px;
+                    padding: 0.5rem 1rem;
+                    font-size: 1rem;
+                    align-itemsQu: center;
+                    font-family: sans-serif;
+                    transition: all 0.3s ease-in-out;
+                    z-index: 100000;
+                    border-radius: 10px;
                 }
-            }
-            
-
-            .danielwahl_cookiebanner p {
-                font-size: 1rem !important;
-                width: 100% !important;
-                max-width: 100% !important;
-                padding: 0 !important;
-                margin: 1rem 0 !important;
-                color: ${this.options.popupColor} !important;
-            }
-
-            .danielwahl_cookiebanner.hidden {
-                transform: translateY(200%);
-                opacity: 0;
-                visibility: hidden;
-            }
-            .danielwahl_cookiebanner.left.hidden, .danielwahl_cookiebanner.right.hidden {
-                transform: translateY(200%);
-                opacity: 0;
-                visibility: hidden;
-            }
-
-            .danielwahl_cookiebanner a {
-                color: ${this.options.linkColor};
-                font-size: 1rem;
-            }
-
-            .danielwahl_cookiebanner p:last-child {
-                text-align: right;
-            }
+                @media screen and (max-width: 720px) {
+                    .danielwahl_cookiebanner {
+                        width: calc(100% - 50px);
+                    }
+                }
 
 
-            .danielwahl_cookiebanner button {
-                color: ${this.options.buttonColor};
-                background: ${this.options.buttonBackground};
-                border: none;
-                display: inline-block;
-                font-size: 1rem;
-                padding: 0.5rem 1rem;
-                outline: none !important;
-                margin-left: 1rem;
-                cursor: pointer;
-            }
-            
-            .danielwahl_cookiebanner button:hover {
-            	background: ${this.options.buttonHover};
-                cursor: pointer;
-            }
-            
-            .danielwahl_cookiebanner button#danielwahl_cookiebanner-decline {
-                background: transparent;
-                color: ${this.options.buttonBackground}
-            }
+                .danielwahl_cookiebanner p {
+                    font-size: 1rem !important;
+                    width: 100% !important;
+                    max-width: 100% !important;
+                    padding: 0 !important;
+                    margin: 1rem 0 !important;
+                    color: ${this.options.popupColor} !important;
+                }
 
+                .danielwahl_cookiebanner.hidden {
+                    transform: translateY(200%);
+                    opacity: 0;
+                    visibility: hidden;
+                }
+                .danielwahl_cookiebanner.left.hidden, .danielwahl_cookiebanner.right.hidden {
+                    transform: translateY(200%);
+                    opacity: 0;
+                    visibility: hidden;
+                }
 
-            @media (max-width: 960px) {
-
-                .danielwahl_cookiebanner button {
-                    font-size: 0.8rem;
+                .danielwahl_cookiebanner a {
+                    color: ${this.options.linkColor};
+                    font-size: 1rem;
                 }
 
                 .danielwahl_cookiebanner p:last-child {
-                    text-align: center;
+                    text-align: right;
                 }
-               
-            }
 
-        `),
+
+                .danielwahl_cookiebanner button {
+                    color: ${this.options.buttonColor};
+                    background: ${this.options.buttonBackground};
+                    border: none;
+                    display: inline-block;
+                    font-size: 1rem;
+                    padding: 0.5rem 1rem;
+                    outline: none !important;
+                    margin-left: 1rem;
+                    cursor: pointer;
+                }
+
+                .danielwahl_cookiebanner button:hover {
+                    background: ${this.options.buttonHover};
+                    cursor: pointer;
+                }
+
+                .danielwahl_cookiebanner button#danielwahl_cookiebanner-decline {
+                    background: transparent;
+                    color: ${this.options.buttonBackground}
+                }
+
+
+                @media (max-width: 960px) {
+
+                    .danielwahl_cookiebanner button {
+                        font-size: 0.8rem;
+                    }
+
+                    .danielwahl_cookiebanner p:last-child {
+                        text-align: center;
+                    }
+
+                }
+
+            `),
         );
 
         document.body.appendChild(this.stylesheet);
@@ -245,15 +245,22 @@ CookieBanner.DefaultOptions = {
     buttonHover: "#298fcb",
     linkColor: "#FF1053",
     type: CookieBanner.Type.DECLINEABLE,
+    link: "/legalnotice",
     message:
-        "Diese Website verwendet Cookies und Tracking – nähere Informationen dazu und zu Ihren Rechten als Benutzer finden Sie in unserer",
-    link: "/datenschutz",
-    linkText: "Datenschutzerklärung",
-    confirmText: "Cookies zulassen",
-    declineText: "Ablehnen",
+        "This website contains cookies and tracking technology – you can find further information on this topic in our",
+    linkText: "privacy policy",
+    confirmText: "Accept cookies",
+    declineText: "Decline",
     revokeButtonID: "revokeConsent",
     position: CookieBanner.Position.BOTTOM,
     languages: {
+        de: {
+            message:
+                "Diese Website verwendet Cookies und Tracking – nähere Informationen dazu und zu Ihren Rechten als Benutzer finden Sie in unserer",
+            linkText: "Datenschutzerklärung",
+            confirmText: "Cookies zulassen",
+            declineText: "Ablehnen",
+        },
         en: {
             message:
                 "This website contains cookies and tracking technology – you can find further information on this topic in our",

@@ -4,6 +4,7 @@ import Head from "next/head";
 interface Props {
     title?: string;
     description?: string;
+    children?: React.ReactChild | React.ReactChild[];
 }
 
 const HTMLHead: React.FC<Props> = ({ children, title, description }) => {

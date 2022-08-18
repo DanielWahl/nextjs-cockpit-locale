@@ -10,6 +10,9 @@ new CookieBanner(
         revokeButtonID: "revokeConsent",
         position: CookieBanner.Position.LEFT,
         languages: {
+            en: {
+                link: "/en/legalnotice",
+            },
             de: {
                 link: "/de/impressum",
             },
@@ -35,7 +38,7 @@ new CookieBanner(
             }
         },
     },
-    "de",
+    localStorage.getItem("locale") ?? "de",
 );
 /*
 _paq.push(['requireConsent']);
