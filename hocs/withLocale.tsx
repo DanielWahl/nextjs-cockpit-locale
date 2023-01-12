@@ -1,8 +1,9 @@
 import { NextPage } from "next";
 import { Locale } from "../translations/types";
 import { LocaleProvider } from "../context/LocaleContext";
-import ErrorPage from "../pages/[lang]/404";
+import ErrorPage from "../pages/404";
 import useTranslation from "../hooks/useTranslation";
+import { useRouter } from "next/router";
 
 interface LangProps {
     locale?: Locale;
@@ -10,13 +11,14 @@ interface LangProps {
 
 export default function withLocale(WrappedPage: NextPage<any>) {
     const WithLocale: NextPage<any, LangProps> = ({ ...pageProps }) => {
-        const { locale } = useTranslation();
+        //const { locale } = useTranslation();
+        const { locale } = useRouter();
 
         if (!locale) {
             return <ErrorPage />;
         }
         return (
-            <LocaleProvider lang={locale}>
+            <LocaleProvider lang={locale as Locale}>
                 <WrappedPage {...pageProps} />
             </LocaleProvider>
         );

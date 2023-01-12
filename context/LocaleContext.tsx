@@ -8,7 +8,7 @@ interface ContextProps {
 }
 
 export const LocaleContext = createContext<ContextProps>({
-    locale: "lu",
+    locale: "en",
     setLocale: () => null,
 });
 
@@ -17,7 +17,7 @@ export const LocaleProvider: React.FC<{
     children?: React.ReactChild | React.ReactChild[];
 }> = ({ lang, children }) => {
     const [locale, setLocale] = useState(lang);
-    const { query } = useRouter();
+    const { query, locale: routerLocale } = useRouter();
 
     useEffect(() => {
         if (locale !== localStorage.getItem("locale")) {

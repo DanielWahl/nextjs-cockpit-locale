@@ -9,14 +9,18 @@
 	grid-gap: 1rem
 	align-items: center
 
-	&--gap-big, &--gap-l
-		grid-gap: 2rem
-
-	&--gap-xl
-		grid-gap: 4rem
+	&--gap-big
+		grid-gap: 3rem
 
 	&--no-gap
 		grid-gap: 0
+
+	&--gap
+		gap: 1rem
+
+		@each $key, $value in $reusableSizes
+			&--#{$key}
+				gap: $value
 
 	&--mobile-no-gap
 		@include media-below(tablet)
@@ -43,6 +47,9 @@
 	&.center
 		align-items: center
 
+	//&.paddingTop
+		padding-top: 3rem
+
 	&.fraction-auto
 		grid-template-columns: 1fr auto
 
@@ -62,8 +69,13 @@
 		@include media-below(tablet)
 			grid-template-columns: 1fr
 
-			&.keepTwo
+			&.keepTwo, &.keepTwoForTablet
 				grid-template-columns: 1fr 1fr
+
+		@include media-below(phone)
+
+			&.keepTwoForTablet
+				grid-template-columns: 1fr
 
 
 	// 33-33-33
@@ -73,16 +85,21 @@
 		@include media-below(tablet)
 			grid-template-columns: 1fr 1fr
 
-			&.keepTwo, &.keepTwo--phone
+			&.keepTwo
 				grid-template-columns: 1fr 1fr
 
+			&.keepThree
+				grid-template-columns: 1fr 1fr 1fr
 
 		@include media-below(phone)
 			grid-template-columns: 1fr
+
 			&.keepTwo
-				grid-template-columns: 1fr
-			&.keepTwo--phone
 				grid-template-columns: 1fr 1fr
+
+			&.keepThree
+				grid-template-columns: 1fr 1fr
+
 
 
 	// 25-25-25-25
@@ -92,9 +109,20 @@
 		@include media-below(desktop)
 			grid-template-columns: 1fr 1fr
 
+			&.keepThree
+				grid-template-columns: 1fr 1fr 1fr
 
 		@include media-below(tablet)
 			grid-template-columns: 1fr
+			&.keepTwo
+				grid-template-columns: 1fr 1fr
+
+			&.keepThree
+				grid-template-columns: 1fr 1fr 1fr
+
+		@include media-below(phone)
+			&.keepThree
+				grid-template-columns: 1fr 1fr
 
 
 
@@ -162,3 +190,42 @@
 		@include media-below(tablet)
 			grid-template-columns: 1fr
 
+
+	// Special Projects-Grid
+	&__projects__half-half
+		grid-template-columns: 1fr 1fr
+
+		@include media-below(tablet)
+			display: flex
+			flex-direction: column
+
+
+	// Special "Our Work"-Grid
+	&.ourWork, &__ourWork
+		grid-template-areas: "desc knowledge" "advice knowledge" "advice capacity"
+		grid-gap: 3rem
+		gap: 3rem
+		width: 80%
+		padding: 0
+		margin: 10rem auto
+
+		@include media-below(tablet)
+			width: 100%
+		@include media-below(phone)
+			grid-template-areas: "desc" "advice" "knowledge" "capacity"
+			width: 100%
+
+
+		.ourWork__advice, .ourWork__knowledge, .ourWork_capacity
+			display: flex
+			align-items: flex-start
+			flex-direction: column
+
+		.ourWork__advice
+			grid-area: advice
+
+		.ourWork__knowledge
+			grid-area: knowledge
+
+		.ourWork_capacity
+			grid-area: capacity

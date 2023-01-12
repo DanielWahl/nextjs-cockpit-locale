@@ -1,5 +1,5 @@
 import React from "react";
-import ContentComponentData from "../../types/component/ContentComponentData";
+import { ContentComponentData } from "../../types/types";
 
 const Maps = ({ settings }: ContentComponentData) => {
     return (

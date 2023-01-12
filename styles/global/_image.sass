@@ -15,3 +15,20 @@ img
 .hidden
 	opacity: 0
 
+.image
+	position: relative
+	width: 100%
+	height: auto
+	border-radius: $borderRadius
+	overflow: hidden
+
+	& > span
+		@include media-below(tablet)
+			width: 100% !important
+			height: auto !important
+
+	img
+		position: relative
+		width: 100%
+		border-radius: $borderRadius
+

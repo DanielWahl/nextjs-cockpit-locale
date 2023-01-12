@@ -1,0 +1,24 @@
+@use "../abstracts" as *
+
+//----------------------------------
+//              CHIPS              -
+//----------------------------------
+
+.chip
+	background: $secondaryLighter
+	color: $textDark
+	padding: .2rem 1rem
+	border-radius: 2rem
+	text-align: center
+
+
+	&.interactive
+		transition: $transition-default
+		cursor: pointer
+
+		&:hover, &:focus, &.active, &.selected
+			background: $primary
+			color: white
+
+	&.large
+		padding: .5rem 2rem

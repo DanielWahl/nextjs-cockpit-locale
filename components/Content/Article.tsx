@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import Props from "../../types/singleComponents/NormalProps";
+import { NormalProps } from "../../types/types";
 
-const Article = (props: Props) => {
+const Article = (props: NormalProps) => {
     const [isLoading, setIsLoading] = useState(true);
     const [fetchedData, setFetchedData] = useState(null);
 
@@ -29,11 +29,9 @@ const Article = (props: Props) => {
             <div className="content">
                 <div className="article">
                     <Link href="/news">
-                        <a>
-                            <button className="full round primary">
-                                &lt; Back
-                            </button>
-                        </a>
+                        <button className="full round primary">
+                            &lt; Back
+                        </button>
                     </Link>
 
                     <div className="article_container">

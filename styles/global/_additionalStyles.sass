@@ -1,9 +1,11 @@
 @use "../abstracts" as *
 @use "sass:math"
 
+
 //----------------------------------
 //        ADDITIONAL STYLES        -
 //----------------------------------
+
 
 .relative
 	position: relative
@@ -11,8 +13,13 @@
 	position: absolute
 .overflow-hidden
 	overflow: hidden
+
+/** DISPLAYS **/
 .block
 	display: block
+.inline
+	display: inline
+
 
 .h
 	&-min
@@ -24,6 +31,20 @@
 			min-height: 60vh
 		&--content
 			min-height: calc(100vh - #{$navHeight} - 100px)
+	&-max
+		&--100px
+			max-height: 100px
+		&--100
+			max-height: 100%
+		&--200px
+			max-height: 200px
+		&--300px
+			max-height: 300px
+		&--400px
+			max-height: 400px
+		&--500px
+			max-height: 500px
+
 	&-100vw, &--100vw
 		height: 100vw
 	&-100, &--100
@@ -41,10 +62,16 @@
 	&-25, &--25
 		height: 25%
 .w
+	&-auto, &--auto
+		width: auto
+	&-fitcontent, &--fitcontent
+		width: fit-content
 	&-100vw, &--100vw
 		width: 100vw
 	&-100, &--100
 		width: 100%
+		&--important
+			width: 100% !important
 	&-90, &--90
 		width: 90%
 	&-80, &--80
@@ -65,6 +92,8 @@
 		width: 33.33%
 	&-25, &--25
 		width: 25%
+	&-10, &--10
+		width: 10%
 
 	&--mobile
 		&-100, &--100
@@ -94,290 +123,226 @@
 			@include media-below(tablet)
 				width: 100%
 
-.background-color
-	&--primary
-		background: $primary
-	&--secondary
-		background: $secondary
-	&--accent, &--third
-		background: $accent
-	&--white
-		background: white
-	&--black
-		background: black
-	&--grey
-		background: $lightBackground
 
-.background-color__phone
-	&--primary
-		@include media-below(phone)
-			background: $primary
-	&--secondary
-		@include media-below(phone)
-			background: $secondary
-	&--accent, &--third
-		@include media-below(phone)
-			background: $accent
-	&--white
-		@include media-below(phone)
-			background: white
-	&--black
-		@include media-below(phone)
-			background: black
-	&--grey
-		@include media-below(phone)
-		background: $lightBackground
+@each $key, $value in $reusableColors
+	.background-color--#{$key}
+		background-color: $value
 
-.background-color__tablet
-	&--primary
+	.background-color__phone--#{$key}
+		@include media-below(phone)
+			background-color: $value
+
+	.background-color__tablet--#{$key}
 		@include media-below(tablet)
-			background: $primary
-	&--secondary
-		@include media-below(tablet)
-			background: $secondary
-	&--accent, &--third
-		@include media-below(tablet)
-			background: $accent
-	&--white
-		@include media-below(tablet)
-			background: white
-	&--black
-		@include media-below(tablet)
-			background: black
-	&--grey
-		@include media-below(tablet)
-			background: $lightBackground
+			background-color: $value
+
+	.color--#{$key}
+		color: $value
+
+	.border-color--#{$key}
+		color: $value
+
+.no-space-around
+	margin: 0 !important
+	padding: 0 !important
 
 
 
 .margin
 	margin: 1rem
-	&--big, &--l
-		margin: 3rem
-	&--veryBig, &--xl
-		margin: 5rem
-	&--none
-		margin: 0
-		&--important
-			margin: 0 !important
-		&--mobile
-			@include media-below(tablet)
-				margin: 0
-
 .marginTop
 	margin-top: 1rem
-	&--big, &--l
-		margin-top: 3rem
-	&--veryBig, &--xl
-		margin-top: 5rem
-	&--none
-		margin-top: 0
-	&--none--mobile
-		@include media-below(tablet)
-			margin-top: 0
 .marginRight
 	margin-right: 1rem
-	&--big, &--l
-		margin-right: 3rem
-	&--veryBig, &--xl
-		margin-right: 5rem
-	&--none
-		margin-right: 0
-	&--none--mobile
-		@include media-below(tablet)
-			margin-right: 0
-
 .marginBottom
 	margin-bottom: 1rem
-	&--big, &--l
-		margin-bottom: 3rem
-	&--veryBig, &--xl
-		margin-bottom: 5rem
-	&--none
-		margin-top: 0
-	&--none--mobile
-		@include media-below(tablet)
-			margin-bottom: 0
 .marginLeft
 	margin-left: 1rem
-	&--big, &--l
-		margin-left: 3rem
-	&--veryBig, &--xl
-		margin-left: 5rem
-	&--none
-		margin-left: 0
-		&--important
-			margin-left: 0 !important
-		&--mobile
-			@include media-below(tablet)
-				margin-left: 0
-
-.paddingTop
-	padding-top: 1rem
-
-	&--small, &--sm
-		padding-top: .5rem
-		&--mobile
-			@include media-below(phone)
-				padding-top:  .5rem !important
-	&--big, &--l
-		padding-top: 3rem
-		&--mobile
-			@include media-below(phone)
-				padding-top: 3rem
-	&--veryBig, &--xl
-		padding-top: 5rem
-		&--mobile
-			@include media-below(phone)
-				padding-top: 5rem
-	&--ultra, &--xxl
-		padding-top: 7rem
-		&--mobile
-			@include media-below(phone)
-				padding-top: 7rem
-	&--none
-		padding-top: 0
-		&--important
-			padding-top: 0 !important
-		&--mobile
-			@include media-below(phone)
-				padding-top: 0
-	&--mobile
-		@include media-below(phone)
-			padding-top:  1rem
-
-		&--important
-			@include media-below(phone)
-				padding-top:  1rem !important
-
-.paddingBottom
-	padding-bottom: 1rem
-	&--mobile
-		@include media-below(phone)
-			padding-bottom: 1rem !important
-	&--small, &--sm
-		padding-bottom: .5rem
-		&--mobile
-			@include media-below(phone)
-				padding-bottom:  .5rem !important
-	&--big, &--l
-		padding-bottom: 3rem
-		&--mobile
-			@include media-below(phone)
-				padding-bottom:  3rem !important
-	&--veryBig, &--xl
-		padding-bottom: 5rem
-		&--mobile
-			@include media-below(phone)
-				padding-bottom: 5rem !important
-	&--none
-		padding-bottom: 0
-		&--important
-			padding-bottom: 0 !important
-		&--mobile
-			@include media-below(phone)
-				padding-bottom: 0 !important
-
-
-.paddingLeft
-	padding-left: 1rem
-
-	&--small, &--sm
-		padding-left: .5rem
-		&--mobile
-			@include media-below(phone)
-				padding-left:  .5rem !important
-	&--big, &--l
-		padding-left: 3rem
-		&--mobile
-			@include media-below(phone)
-				padding-left: 3rem
-	&--veryBig, &--xl
-		padding-left: 5rem
-		&--mobile
-			@include media-below(phone)
-				padding-left: 5rem
-	&--ultra, &--xxl
-		padding-left: 7rem
-		&--mobile
-			@include media-below(phone)
-				padding-left: 7rem
-	&--none
-		padding-left: 0
-		&--important
-			padding-left: 0 !important
-		&--mobile
-			@include media-below(phone)
-				padding-left: 0
-	&--mobile
-		@include media-below(phone)
-			padding-left:  1rem
-
-
-.paddingRight
-	padding-right: 1rem
-
-	&--small, &--sm
-		padding-right: .5rem
-		&--mobile
-			@include media-below(phone)
-				padding-right:  .5rem !important
-	&--big, &--l
-		padding-right: 3rem
-		&--mobile
-			@include media-below(phone)
-				padding-right: 3rem
-	&--veryBig, &--xl
-		padding-right: 5rem
-		&--mobile
-			@include media-below(phone)
-				padding-right: 5rem
-	&--ultra, &--xxl
-		padding-right: 7rem
-		&--mobile
-			@include media-below(phone)
-				padding-right: 7rem
-	&--none
-		padding-right: 0
-		&--important
-			padding-right: 0 !important
-		&--mobile
-			@include media-below(phone)
-				padding-right: 0
-	&--mobile
-		@include media-below(phone)
-			padding-right:  1rem
-
 
 .padding
 	padding: 1rem
-	&--mobile
-		@include media-below(phone)
-			padding: 1rem !important
-	&--small, &--sm
-		padding: .5rem
+.paddingTop
+	padding-top: 1rem
+.paddingRight
+	padding-right: 1rem
+.paddingBottom
+	padding-bottom: 1rem
+.paddingLeft
+	padding-left: 1rem
+
+@each $key, $value in $reusableSizes
+
+	.margin--#{$key}
+		margin: $value
 		&--important
-			padding: .5rem !important
-		&--mobile
+			margin: $value !important
+		&--mobile, &--phone
 			@include media-below(phone)
-				padding:  .5rem !important
-	&--big, &--l
-		padding: 3rem
-		&--mobile
-			@include media-below(phone)
-				padding: 3rem !important
-	&--veryBig, &--xl
-		padding: 5rem
-		&--mobile
-			@include media-below(phone)
-				padding: 5rem !important
-	&--none
-		padding: 0
+				margin: $value
+		&--smallPhone
+			@include media-below(smallPhone)
+				margin: $value
+		&--tablet
+			@include media-below(tablet)
+				margin: $value
+		&--content
+			@include media-below(content)
+				margin: $value
+
+	.marginTop--#{$key}
+		margin-top: $value
 		&--important
-			padding: 0 !important
-		&--mobile
+			margin-top: $value !important
+		&--mobile, &--phone
 			@include media-below(phone)
-				padding: 0
+				margin-top: $value
+		&--smallPhone
+			@include media-below(smallPhone)
+				margin-top: $value
+		&--tablet
+			@include media-below(tablet)
+				margin-top: $value
+		&--content
+			@include media-below(content)
+				margin-top: $value
+
+	.marginRight--#{$key}
+		margin-right: $value
+		&--important
+			margin-right: $value !important
+		&--mobile, &--phone
+			@include media-below(phone)
+				margin-right: $value
+		&--smallPhone
+			@include media-below(smallPhone)
+				margin-right: $value
+		&--tablet
+			@include media-below(tablet)
+				margin-right: $value
+		&--content
+			@include media-below(content)
+				margin-right: $value
+
+	.marginBottom--#{$key}
+		margin-bottom: $value
+		&--important
+			margin-bottom: $value !important
+		&--mobile, &--phone
+			@include media-below(phone)
+				margin-bottom: $value
+		&--smallPhone
+			@include media-below(smallPhone)
+				margin-bottom: $value
+		&--tablet
+			@include media-below(tablet)
+				margin-bottom: $value
+		&--content
+			@include media-below(content)
+				margin-bottom: $value
+
+	.marginLeft--#{$key}
+		margin-left: $value
+		&--important
+			margin-left: $value !important
+		&--mobile, &--phone
+			@include media-below(phone)
+				margin-left: $value
+		&--smallPhone
+			@include media-below(smallPhone)
+				margin-left: $value
+		&--tablet
+			@include media-below(tablet)
+				margin-left: $value
+		&--content
+			@include media-below(content)
+				margin-left: $value
+
+
+	.padding--#{$key}
+		padding: $value
+		&--important
+			padding: $value !important
+		&--mobile, &--phone
+			@include media-below(phone)
+				padding: $value
+		&--smallPhone
+			@include media-below(smallPhone)
+				padding: $value
+		&--tablet
+			@include media-below(tablet)
+				padding: $value
+		&--content
+			@include media-below(content)
+				padding: $value
+
+	.paddingTop--#{$key}
+		padding-top: $value
+		&--important
+			padding-top: $value !important
+		&--mobile, &--phone
+			@include media-below(phone)
+				padding-top: $value
+		&--smallPhone
+			@include media-below(smallPhone)
+				padding-top: $value
+		&--tablet
+			@include media-below(tablet)
+				padding-top: $value
+		&--content
+			@include media-below(content)
+				padding-top: $value
+
+	.paddingRight--#{$key}
+		padding-right: $value
+		&--important
+			padding-right: $value !important
+		&--mobile, &--phone
+			@include media-below(phone)
+				padding-right: $value
+		&--smallPhone
+			@include media-below(smallPhone)
+				padding-right: $value
+		&--tablet
+			@include media-below(tablet)
+				padding-right: $value
+		&--content
+			@include media-below(content)
+				padding-right: $value
+
+	.paddingBottom--#{$key}
+		padding-bottom: $value
+		&--important
+			padding-bottom: $value !important
+		&--mobile, &--phone
+			@include media-below(phone)
+				padding-bottom: $value
+		&--smallPhone
+			@include media-below(smallPhone)
+				padding-bottom: $value
+		&--tablet
+			@include media-below(tablet)
+				padding-bottom: $value
+		&--content
+			@include media-below(content)
+				padding-bottom: $value
+
+	.paddingLeft--#{$key}
+		padding-left: $value
+		&--important
+			padding-left: $value !important
+		&--mobile, &--phone
+			@include media-below(phone)
+				padding-left: $value
+		&--smallPhone
+			@include media-below(smallPhone)
+				padding-left: $value
+		&--tablet
+			@include media-below(tablet)
+				padding-left: $value
+		&--content
+			@include media-below(content)
+				padding-left: $value
+
 
 .border
 	&-radius, &--radius
@@ -432,10 +397,106 @@ strong, .strong
 .transform
 	&-translate
 		&--3rem-
-			transform: translateY(-3rem)
+			transform: translate(-3rem, -3rem)
 	&-translateX
+		&--1rem-
+			transform: translateX(-1rem)
+		&--2rem-
+			transform: translateX(-2rem)
 		&--3rem-
-			transform: translateY(-3rem)
+			transform: translateX(-3rem)
 	&-translateY
+		&--1rem-
+			transform: translateY(-1rem)
+		&--2rem-
+			transform: translateY(-2rem)
 		&--3rem-
 			transform: translateY(-3rem)
+
+
+// Underline hover:
+.underline--hover
+	transition: $transition-default
+	overflow: hidden
+	@include pseudo($loc:after, $bottom: 0, $left: 0)
+		width: 100%
+		transform: translateX(-110%)
+		transition: $transition-default
+		height: 2px
+		background: $textDark
+
+	&--primary
+		&::after
+			background: $primary
+	&--secondary
+		&::after
+			background: $secondary
+	&--accent
+		&::after
+			background: $accent
+
+	&:hover
+		@include pseudo($loc:after, $bottom: 0, $left: 0)
+			width: 100%
+			transform: translateX(0%)
+
+//Icons as pseudo on boxes
+.icon
+	&__before
+		&--donate
+			@include pseudo($loc: before, $top: 0rem, $left: 50%)
+				background: url("/svgs/donate-icon.svg") no-repeat center center, $white
+				box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1)
+				height: 3rem
+				width: 3rem
+				padding: .8rem
+				border-radius: 4rem
+				transform: translate(-50%, -50%)
+
+
+
+// Hide on different medias
+.hide
+	display: none
+	&__above
+		&--smallPhone
+			@include media-above(smallPhone)
+				display: none
+		&--phone
+			@include media-above(phone)
+				display: none
+		&--tablet
+			@include media-above(tablet)
+				display: none
+		&--desktop
+			@include media-above(content)
+				display: none
+		&--desktop
+			@include media-above(desktop)
+				display: none
+	&__below
+		&--smallPhone
+			@include media-below(smallPhone)
+				display: none
+		&--phone
+			@include media-below(phone)
+				display: none
+		&--tablet
+			@include media-below(tablet)
+				display: none
+		&--desktop
+			@include media-below(content)
+				display: none
+		&--desktop
+			@include media-below(desktop)
+				display: none
+
+
+/** Box Shadow styles **/
+.box-shadow
+	box-shadow: $boxShadow
+.box-shadow--hover
+	&:hover, &:focus
+		box-shadow: $boxShadowHover
+	&:focus-visible
+		box-shadow: $boxShadowFocus

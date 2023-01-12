@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import ArticleData from "../../types/singleComponents/ArticleData";
+import { ArticleData } from "../../types/types";
 import Link from "next/link";
 
 interface Props {

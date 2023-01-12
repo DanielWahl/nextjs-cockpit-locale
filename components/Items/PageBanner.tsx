@@ -1,7 +1,7 @@
 import React from "react";
-import Props from "../../types/singleComponents/NormalProps";
+import { NormalProps } from "../../types/types";
 
-const PageBanner = ({ data }: Props) => {
+const PageBanner = ({ data }: NormalProps) => {
     return (
         <div className="component-text">
             <div dangerouslySetInnerHTML={{ __html: data?.text }} />

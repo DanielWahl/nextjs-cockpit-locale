@@ -1,38 +1,41 @@
 import React from "react";
-import ContentComponentData from "../../types/component/ContentComponentData";
+import { ContentComponentData } from "../../types/types";
 
-const Heading: React.FC<ContentComponentData> = ({ settings }) => {
-    const { text, tag } = settings;
+const Heading: React.FC<ContentComponentData> = (props) => {
+    if (!props.data) return null;
+
+    const { data } = props;
+    const { text, level } = data;
 
     return (
-        <div className="component-heading">
-            {tag && tag === "h1" && (
+        <div className="component-heading paddingTop">
+            {level && level === "1" && (
                 <h1
-                    className={settings?.class ?? ""}
+                    className={"paddingTop fw--600" + (data?.class ?? "")}
                     dangerouslySetInnerHTML={{ __html: text }}
                 />
             )}
-            {tag && tag === "h2" && (
+            {level && level === "2" && (
                 <h2
-                    className={settings?.class ?? ""}
+                    className={data?.class ?? ""}
                     dangerouslySetInnerHTML={{ __html: text }}
                 />
             )}
-            {tag && tag === "h3" && (
+            {level && level === "3" && (
                 <h3
-                    className={settings?.class ?? ""}
+                    className={data?.class ?? ""}
                     dangerouslySetInnerHTML={{ __html: text }}
                 />
             )}
-            {tag && tag === "h4" && (
+            {level && level === "4" && (
                 <h4
-                    className={settings?.class ?? ""}
+                    className={data?.class ?? ""}
                     dangerouslySetInnerHTML={{ __html: text }}
                 />
             )}
-            {!tag && (
+            {!level && (
                 <h2
-                    className={settings?.class ?? ""}
+                    className={data?.class ?? ""}
                     dangerouslySetInnerHTML={{ __html: text }}
                 />
             )}

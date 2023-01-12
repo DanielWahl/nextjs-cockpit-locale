@@ -6,7 +6,92 @@
 //----------------------------------
 
 
-input
+input, textarea
 	padding: .5rem
 	border-radius: math.div($borderRadius, 2)
 	border: 1px solid $primary
+	font-family: "Plus Jakarta Sans", sans-serif
+	outline: none
+	-webkit-appearance: none
+
+
+
+.input-group
+	display: flex
+	flex-direction: column
+	width: 100%
+	padding-top: 1rem
+
+	span.input--label, & > span
+		color: $primary
+		padding-left: .2rem
+		padding-bottom: .1rem
+
+	& > input, & > textarea
+		background: $lightBackground
+		border: 2px solid $lightBackground
+		outline: none
+		transition: $transition-default
+
+
+		&:hover
+			border: 2px solid $lightergrey
+		&:focus, &:active
+			border: 2px solid $accent
+
+	& > textarea
+		resize: vertical
+
+
+.checkbox
+	&__label
+		position: relative
+		display: flex
+		align-items: center
+
+
+
+		&:hover, &:focus-visible
+			color: $accent
+			cursor: pointer
+
+			.checkbox__input
+				border: 2px solid $accent
+
+
+	&__input
+		-webkit-appearance: none
+		border: 2px solid $primary
+		border-radius: 5px
+
+		&:checked
+			@include pseudo($loc: after)
+				left: 5px
+				top: 1px
+				width: 5px
+				height: 10px
+				border: solid $primary
+				border-width: 0 2px 2px 0
+				-webkit-transform: rotate(45deg)
+				-ms-transform: rotate(45deg)
+				transform: rotate(45deg)
+
+	&__span
+		padding-left: .5rem
+
+
+	&__label
+		&--accent
+			align-items: flex-start
+			.checkbox
+				&__input
+					border: 2px solid $accent
+					margin-top: .25rem
+
+					&:checked
+						&::after
+							border-color: $accent
+				&__span
+					color: $primary
+
+

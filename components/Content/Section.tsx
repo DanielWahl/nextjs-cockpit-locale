@@ -4,71 +4,67 @@ import Text from "../Items/Text";
 import Image from "../Items/Image";
 import Divider from "../Items/Divider";
 import Grid from "./Grid";
-import PageBanner from "../Items/PageBanner";
 import Button from "../Items/Button";
 import FlexBox from "./FlexBox";
-import Collection from "./Collection";
-import News from "./News";
-import PopupBox from "../Items/PopupBox";
-import Maps from "../Items/Maps";
-
-import ContentComponentData from "../../types/component/ContentComponentData";
-import NormalProps from "../../types/singleComponents/NormalProps";
+import { ContentComponentData, NormalProps } from "../../types/types";
 import { randomNumber } from "../../helpers/randomNumber";
-
-const defaultComponents: any = {
-    heading: Heading,
-    text: Text,
-    image: Image,
-    divider: Divider,
-    grid: Grid,
-    pagebanner: PageBanner,
-    button: Button,
-    flexbox: FlexBox,
-    addcollection: Collection,
-    news: News,
-    popupbox: PopupBox,
-    maps: Maps,
-};
+import Spacer from "../Items/Spacer";
+import AnimatedDiv from "../Items/AnimatedDiv";
 
 const Section = (props: NormalProps) => {
     let { childrenData, data } = props;
 
     return (
-        <section className={`page-components`}>
-            {childrenData &&
-                childrenData.map(
-                    (component: ContentComponentData, j: number) => {
-                        const comp_name = component.component;
-                        const comp_settings = component.settings;
-                        const comp_children = component.children || [];
-                        const comp_columns = component.columns || [];
+        <section
+            className={`page-section` + (data?.class ? " " + data?.class : "")}
+        >
+            <div className="content">
+                {childrenData &&
+                    childrenData.map(
+                        (component: ContentComponentData, j: number) => {
+                            const comp_name = component.component;
+                            const comp_settings = component.data;
+                            const comp_children = component.children || [];
+                            const comp_columns = component.columns || [];
 
-                        if (defaultComponents[comp_name] === undefined) {
-                            return null;
-                        }
+                            if (defaultComponents[comp_name] === undefined) {
+                                return null;
+                            }
 
-                        const NewComponent = defaultComponents[comp_name];
+                            const NewComponent = defaultComponents[comp_name];
 
-                        return (
-                            <div
-                                className="frame"
-                                key={`component__${j}__${randomNumber}`}
-                            >
-                                <NewComponent
-                                    {...props}
-                                    name={comp_name}
-                                    settings={comp_settings}
-                                    childrenData={comp_children}
-                                    columns={comp_columns}
-                                    data={data}
-                                />
-                            </div>
-                        );
-                    },
-                )}
+                            return (
+                                <div
+                                    className="frame"
+                                    key={`component__${j}__${randomNumber}`}
+                                >
+                                    <NewComponent
+                                        {...props}
+                                        name={comp_name}
+                                        settings={comp_settings}
+                                        childrenData={comp_children}
+                                        columns={comp_columns}
+                                        data={comp_settings}
+                                    />
+                                </div>
+                            );
+                        },
+                    )}
+            </div>
         </section>
     );
+};
+
+const defaultComponents: any = {
+    heading: Heading,
+    richtext: Text,
+    image: Image,
+    divider: Divider,
+    button: Button,
+    flexbox: FlexBox,
+    grid: Grid,
+    animateddiv: AnimatedDiv,
+    spacer: Spacer,
 };
 
 export default Section;

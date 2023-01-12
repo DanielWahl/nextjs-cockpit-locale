@@ -1,0 +1,41 @@
+@use "../abstracts" as *
+
+//----------------------------------
+//              SWIPER             -
+//----------------------------------
+
+
+
+.swiper
+	&-button
+		&-next, &-prev
+			background: $lightBackground
+			aspect-ratio: 1 / 1
+			border-radius: 5rem
+			padding: 2rem
+			opacity: 1
+			transition: $transition-default
+			visibility: visible
+			transform: translateY(-50%) scale(0.8)
+
+			&.swiper-button-disabled
+				opacity: 0
+				visibility: hidden
+
+			&::after
+				font-size: 1.5rem
+				color: $accent
+
+			&:hover
+				box-shadow: $boxShadowHover
+			&:focus-visible
+				box-shadow: $boxShadowFocus
+
+		&-next
+			right: calc((100vw - #{$content}) / 2)
+			transform: translate(0%, -50%) scale(0.8)
+
+			@include media-below(content)
+				transform: translateY(-50%) scale(0.8)
+				right: 1rem
+

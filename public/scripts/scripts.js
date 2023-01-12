@@ -11,13 +11,10 @@ new CookieBanner(
         position: CookieBanner.Position.LEFT,
         languages: {
             en: {
-                link: "/en/legalnotice",
+                link: "/legalnotice",
             },
-            de: {
-                link: "/de/impressum",
-            },
-            fr: {
-                link: "/fr/impressum",
+            lu: {
+                link: "/lu/impressum",
             },
         },
         onAccept: () => {
@@ -38,7 +35,7 @@ new CookieBanner(
             }
         },
     },
-    localStorage.getItem("locale") ?? "de",
+    localStorage.getItem("locale") ?? "en",
 );
 /*
 _paq.push(['requireConsent']);

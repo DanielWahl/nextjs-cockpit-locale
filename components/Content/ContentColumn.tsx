@@ -5,33 +5,23 @@ import Image from "../Items/Image";
 import Grid from "./Grid";
 import Divider from "../Items/Divider";
 import Heading from "../Items/Heading";
-import PageBanner from "../Items/PageBanner";
 import Button from "../Items/Button";
 import FlexBox from "./FlexBox";
-import Collection from "./Collection";
-import News from "./News";
-import PopupBox from "../Items/PopupBox";
-import Maps from "../Items/Maps";
 import Section from "./Section";
 
-import ContentData from "../../types/component/ContentData";
-import ContentComponentData from "../../types/component/ContentComponentData";
+import { ContentData, ContentComponentData } from "../../types/types";
 import { randomNumber } from "../../helpers/randomNumber";
+import AnimatedDiv from "../Items/AnimatedDiv";
 
 const defaultComponents: any = {
     heading: Heading,
-    text: Text,
+    richtext: Text,
     image: Image,
     divider: Divider,
-    grid: Grid,
-    pagebanner: PageBanner,
     button: Button,
     flexbox: FlexBox,
-    addcollection: Collection,
-    news: News,
-    popupbox: PopupBox,
-    maps: Maps,
     section: Section,
+    animateddiv: AnimatedDiv,
 };
 
 const ContentColumn = ({ childrenData }: ContentData) => {

@@ -4,45 +4,13 @@
 //           TEXT STYING           -
 //----------------------------------
 
-.uppercase
-	text-transform: uppercase
-
-.color
-	&--dark
-		color: $textDark
-	&--light
-		color: $textLight
-	&--primary
-		color: $primary
-	&--secondary
-		color: $secondary
-	&--accent
-		color: $accent
-	&--success
-		color: forestgreen
-
-.border-color
-	&--dark
-		border-color: $textDark
-	&--light
-		border-color: $textLight
-	&--primary
-		border-color: $primary
-	&--secondary
-		border-color: $secondary
-	&--accent
-		border-color: $accent
-	&--success
-		border-color: forestgreen
-
-.text--center, .align--center
-	text-align: center
-
-.text--left, .align--left
-	text-align: left
-
-.text--right, .align--right
-	text-align: right
+.text, .align
+	&--center
+		text-align: center
+	&--left
+		text-align: left
+	&--right
+		text-align: right
 
 .strong, .bold, strong
 	font-weight: 700
@@ -55,10 +23,36 @@
 	text-transform: lowercase
 
 .fs
-	&--sm, &--small
+	&--small, &--sm
 		font-size: .8rem
+	&--medium, &--md
+		font-size: 1rem
+	&--mlarge, &--ml
+		font-size: 1.2rem
+	&--large, &--l
+		font-size: 1.5rem
+	&--xlarge, &--xl
+		font-size: 2rem
 
-
+.fw
+	&--100
+		font-weight: 100
+	&--200
+		font-weight: 200
+	&--300
+		font-weight: 300
+	&--400
+		font-weight: 400
+	&--500
+		font-weight: 500
+	&--600
+		font-weight: 600
+	&--700
+		font-weight: 700
+	&--800
+		font-weight: 800
+	&--900
+		font-weight: 900
 
 
 /**** FONT ****/
@@ -78,7 +72,7 @@ h1
 
 
 h2
-	color: $textDark
+	color: $primary
 	font-family: "Plus Jakarta Sans", sans-serif
 	font-size: 2rem
 	font-weight: 400
@@ -96,12 +90,21 @@ h2
 		color: white
 
 h3
+	color: $primary
+	font-size: 1.7rem
+	font-family: "Plus Jakarta Sans", sans-serif
+	font-weight: 400
 	&.center
 		text-align: center
 	&.white
 		color: white
 
 
+h4
+	color: $primary
+	font-size: 1.5rem
+	font-family: "Plus Jakarta Sans", sans-serif
+	font-weight: 600
 
 
 h1, h2, h3, h4, h5
@@ -124,6 +127,7 @@ p
 	font-weight: 400
 	font-size: 1rem
 	color: $textDark
+	line-height: 1.45rem
 
 	position: relative
 	z-index: 0
@@ -151,23 +155,27 @@ a
 	outline: none
 	font-family: "Plus Jakarta Sans", sans-serif
 	cursor: pointer
-	border-bottom: 1px solid transparent
+	border: none
 	transition: $transition-default
 
-p > a, .document a, footer .content > a
+p > a, .document a, footer .content > a, .link
 	color: $primary
 	//border-bottom: 1px solid transparent
 	transition: $transition-default
 	overflow: hidden
 	font-weight: 700
 	z-index: 0
-	display: flex
+	display: inline-flex
 	width: fit-content
+	line-height: 1.45rem
+	border-bottom: 2px solid transparent
 
 	&:hover, &:focus
+		border-bottom: 2px solid $primary
 		&::before
 			transform: translate(1rem, 1rem)
 			animation: link-anim-in .3s ease
 
 strong
 	font-weight: 700
+

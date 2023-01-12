@@ -5,7 +5,7 @@ import { defaultLocale } from "../translations/config";
 import { translationString } from "../translations/translationStringType";
 
 export default function useTranslation() {
-    const { locale } = useContext(LocaleContext);
+    const { locale, setLocale } = useContext(LocaleContext);
 
     function t(key: translationString) {
         if (!strings[locale][key]) {
@@ -19,5 +19,6 @@ export default function useTranslation() {
     return {
         t,
         locale,
+        setLocale,
     };
 }

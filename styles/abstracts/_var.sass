@@ -15,20 +15,23 @@ $verylightgrey:     	#f3f3f3
 $textLight:				white
 $textDark:				black
 
-$primary: #8fc5ff
+$primary: 				#00506E
 $primaryHover:      	darken($primary, 20%)
-$primaryLighter: 		lighten($primary, 20%)
+$primaryLighter: 		#DFF0FA
 
-$secondary: #fcca13
+$secondary: 			#5FB4E6
 $secondaryHover:    	darken($secondary, 20%)
+$secondaryLighter: 		#DFF0FA
 
-$third:             	#8c93a3
+$third:             	#EB0046
+$thirdHover:    		darken($third, 20%)
 
-$accent:            	#F25E79
+$accent:            	#EB0046
+$accentHover:    		darken($accent, 20%)
 
 $lightPrimary: 			#dddddd
 $lightBase:         	#ffffff
-$lightBackground: 		#f5f5f8
+$lightBackground: 		#F5F5F5
 $lightgrey: 			#949494
 
 $darkTransparent:   	rgba(104, 104, 104, 0.3)
@@ -42,11 +45,11 @@ $navBackground:     	transparent //$primary
 // SIZES
 $headerHeight: 			800px
 $headerSmallHeight:		112px
-$navHeight:         	75px
+$navHeight:         	80px
 $navWidth: 				500px
-$navMobileHeight: 		78px
-$borderRadiusSize:		16px
-$borderRadiusHalf: 		math.div($borderRadiusSize, 4)
+$navMobileHeight: 		65px
+$borderRadiusSize:		10px
+$borderRadiusHalf: 		math.div($borderRadiusSize, 2)
 $borderRadius:      	$borderRadiusSize
 
 $gridSpacing:       	2rem
@@ -67,7 +70,14 @@ $zHeader: 				100
 $zNavigation: 			200
 $zNavigationHamburger: 	190
 $zOverlay: 				100
-$zPopup: 300
+$zPopup: 				300
+$zFab:					80
 
 // Transitions
 $transition-default: 	all .3s ease
+
+// Box-shadows
+$boxShadow: 			0 4px 9px rgba(0, 0, 0, 0.12)
+$boxShadowHover: 		0 4px 15px rgba(0, 0, 0, 0.2)
+$boxShadowFocus:		0 0 1px 4px $accent
+

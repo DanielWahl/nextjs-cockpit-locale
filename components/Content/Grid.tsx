@@ -1,9 +1,9 @@
 import React from "react";
-import ContentColumn from "./ContentColumn";
-import ContentComponentData from "../../types/component/ContentComponentData";
 import { randomNumber } from "../../helpers/randomNumber";
+import { ContentComponentData } from "../../types/types";
+import GridColumn from "./GridColumn";
 
-const grid: any = {
+const gridValues: any = {
     0: "",
     1: "",
     2: "half-half",
@@ -11,20 +11,26 @@ const grid: any = {
     4: "four-fourths",
 };
 
-const Grid = ({ columns }: ContentComponentData) => {
-    let gridColumns = grid[columns?.length || 0];
+const Grid = ({ columns, settings }: ContentComponentData) => {
+    let gridColumns = gridValues[columns?.length || settings?.colWidth || 0];
 
     return (
-        <div className={`page-components grid ${gridColumns}`}>
+        <div
+            className={`page-grid grid ${gridColumns} ${
+                settings?.class && settings?.class !== ""
+                    ? settings?.class
+                    : gridColumns
+            }`}
+        >
             {columns &&
                 columns.map((column: ContentComponentData, i: number) => {
-                    const col_settings = column.settings;
-                    const col_children = column.children || [];
+                    const col_settings = column.data;
+                    const col_columns = column.components || [];
 
                     return (
-                        <ContentColumn
+                        <GridColumn
                             settings={col_settings}
-                            childrenData={col_children}
+                            childrenData={col_columns}
                             key={`contentcolumn__${i}__${randomNumber}`}
                         />
                     );

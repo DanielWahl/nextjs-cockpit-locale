@@ -1,23 +1,18 @@
 import React from "react";
 import Text from "../Items/Text";
 import Image from "../Items/Image";
-import Grid from "./Grid";
 import Divider from "../Items/Divider";
 import Heading from "../Items/Heading";
-import PageBanner from "../Items/PageBanner";
 import Button from "../Items/Button";
-import Collection from "./Collection";
 import { randomNumber } from "../../helpers/randomNumber";
+import Spacer from "../Items/Spacer";
 
 const defaultComponents: any = {
     heading: Heading,
-    text: Text,
+    richtext: Text,
     image: Image,
     divider: Divider,
-    grid: Grid,
-    pagebanner: PageBanner,
-    button: Button,
-    addcollection: Collection,
+    spacer: Spacer,
 };
 
 interface Props {
@@ -30,7 +25,7 @@ const FlexBox = ({ children }: Props) => {
             {children &&
                 children.map((component: any, j: number) => {
                     const comp_name = component.component;
-                    const comp_settings = component.settings;
+                    const comp_settings = component.data;
                     const comp_children = component.children || [];
 
                     if (defaultComponents[comp_name] === undefined) {
@@ -42,7 +37,7 @@ const FlexBox = ({ children }: Props) => {
                     return (
                         <NewComponent
                             name={comp_name}
-                            settings={comp_settings}
+                            data={comp_settings}
                             childrenData={comp_children}
                             key={`component__${j}__${randomNumber}`}
                         />

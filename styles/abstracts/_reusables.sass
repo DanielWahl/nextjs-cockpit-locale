@@ -1,0 +1,22 @@
+@use "sass:map"
+@use "./var" as *
+
+$reusableSizes: ("s": .5rem, "m": 1rem, "l": 2rem, "xl": 4rem, "xxl": 6rem)
+$reusableSizes: map.merge($reusableSizes, ("sm": .5rem, "md": 1rem, "lg": 2rem))
+$reusableSizes: map.merge($reusableSizes, ("small": .5rem, "medium": 1rem, "large": 2rem, "xlarge": 4rem, "ultra": 6rem))
+$reusableSizes: map.merge($reusableSizes, ("big": 2rem, "veryBig": 4rem, "none": 0))
+
+$reusableColors: ("primary": $primary, "secondary": $secondary, "third": $third)
+$reusableColors: map.merge($reusableColors, ("accent": $accent))
+$reusableColors: map.merge($reusableColors, ("lightBase": $lightBase))
+$reusableColors: map.merge($reusableColors, ("textLight": $textLight))
+$reusableColors: map.merge($reusableColors, ("textDark": $textDark))
+$reusableColors: map.merge($reusableColors, ("light": $textLight))
+$reusableColors: map.merge($reusableColors, ("dark": $textDark))
+$reusableColors: map.merge($reusableColors, ("white": $white))
+$reusableColors: map.merge($reusableColors, ("black": $black))
+$reusableColors: map.merge($reusableColors, ("primaryLighter": $primaryLighter))
+$reusableColors: map.merge($reusableColors, ("primaryHover": $primaryHover))
+$reusableColors: map.merge($reusableColors, ("secondaryLighter": $secondaryLighter))
+$reusableColors: map.merge($reusableColors, ("secondaryHover": $secondaryHover))
+$reusableColors: map.merge($reusableColors, ("success": forestgreen))

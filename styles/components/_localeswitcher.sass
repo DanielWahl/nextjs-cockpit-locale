@@ -1,0 +1,123 @@
+@use "../abstracts" as *
+@use "../layouts" as *
+
+//----------------------------------
+//         LOCALE SWITCHER         -
+//----------------------------------
+
+.languageSwitcher
+	height: 2.5rem
+	width: 4rem
+	margin-top: .75rem
+	z-index: calc(#{$zNavigation} + 1)
+
+
+	&__wrapper
+		background: $secondaryLighter
+		border-radius: 1rem
+		outline: none
+		cursor: pointer
+		padding: .5rem 1rem
+		height: 2rem
+		overflow: hidden
+		display: flex
+		flex-direction: row
+		justify-content: center
+		align-items: flex-start
+		gap: 0
+
+
+		//  LanguageSwitcher:
+		// 	on hover button -> bg-color $primary + color $white
+		//	on open button -> bg-color $secondaryLighter
+		//	on hover item/language -> color: $accent **/
+
+		&:hover, &:focus-visible
+			background: $primary
+			color: $white
+
+		&-li
+			list-style: none
+			&::before, &::after
+				content: none
+
+	&__list
+		height: auto
+		display: flex
+		flex-direction: column
+		justify-content: center
+		align-items: center
+		width: auto
+		gap: 0
+
+		&__item
+			margin: .5rem 0 0
+			padding: 0
+			background: transparent
+			list-style: none
+
+			&:first-child
+				margin: 0
+
+			.localeSwitcher__button
+				display: none
+				background: transparent
+				border: none
+				-webkit-appearance: none
+				cursor: pointer
+				color: $textDark
+
+				font-size: .8rem
+				font-weight: 300
+
+				&:hover, &:focus-visible
+					color: $accent
+
+				&--active
+					display: block
+					pointer-events: none
+
+	.locale-arrow
+		margin-top: .25rem
+		margin-left: .25rem
+		path
+			fill: $textDark
+
+
+
+	&__wrapper
+		&.open
+			height: auto
+			overflow: initial
+			.localeSwitcher__list
+				height: auto
+				gap: .5rem
+
+
+			.localeSwitcher__button
+				display: block
+
+		&:hover, &:focus
+			.localeSwitcher__button
+				color: $textLight
+				&:hover, &:focus
+					color: $accent
+			.locale-arrow
+				path
+					fill: $textLight
+
+
+
+	&.desktop
+		display: block
+		@include media-below(phone)
+			display: none
+
+	&.mobile
+		display: block
+		margin-top: .25rem
+		@include media-above(phone)
+			display: none
+
+
+

@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { Scrollchor } from "react-scrollchor";
-import PageEntry from "../../types/page/PageEntry";
-import PageProps from "../../types/page/PageProps";
+import { PageProps, PageEntry } from "../../types/types";
 import navigationAnim from "../../helpers/NavigationAnim";
 import useTranslation from "../../hooks/useTranslation";
 
@@ -25,62 +23,47 @@ const Navigation = (props: PageProps) => {
     }, [lastScrollTop]);
 
     const renderLogo = () => {
-        if (props?.isHome) {
-            return (
-                <Scrollchor to="#mainHeader" className="navLink">
-                    <a>
-                        <div className="logo"> </div>
-                    </a>
-                </Scrollchor>
-            );
-        } else {
-            return (
-                <Link href="/[lang]" as={`/${locale}`}>
-                    <a>
-                        <div className="logo"> </div>
-                    </a>
-                </Link>
-            );
-        }
+        return (
+            <Link href="" as={`/`}>
+                <div className="logo"> </div>
+            </Link>
+        );
     };
 
     const renderStaticNavigation = () => {
         return (
             <ul>
                 <li className="mainNavigation__item">
-                    <Link href={`/[lang]/aboutus`} as={`/${locale}/aboutus`}>
-                        <a
-                            className={
-                                "navLink" +
-                                (slug === "aboutus" ? " navLink--active" : "")
-                            }
-                        >
-                            About Us
-                        </a>
+                    <Link
+                        href={`/aboutus`}
+                        className={
+                            "navLink" +
+                            (slug === "aboutus" ? " navLink--active" : "")
+                        }
+                    >
+                        About Us
                     </Link>
                 </li>
                 <li className="mainNavigation__item">
-                    <Link href={`/[lang]/gallery`} as={`/${locale}/gallery`}>
-                        <a
-                            className={
-                                "navLink" +
-                                (slug === "gallery" ? " navLink--active" : "")
-                            }
-                        >
-                            Gallery
-                        </a>
+                    <Link
+                        href={`/gallery`}
+                        className={
+                            "navLink" +
+                            (slug === "gallery" ? " navLink--active" : "")
+                        }
+                    >
+                        Gallery
                     </Link>
                 </li>
                 <li className="mainNavigation__item">
-                    <Link href={`/[lang]/contact`} as={`/${locale}/contact`}>
-                        <a
-                            className={
-                                "navLink" +
-                                (slug === "contact" ? " navLink--active" : "")
-                            }
-                        >
-                            Contact
-                        </a>
+                    <Link
+                        href={`/contact`}
+                        className={
+                            "navLink" +
+                            (slug === "contact" ? " navLink--active" : "")
+                        }
+                    >
+                        Contact
                     </Link>
                 </li>
             </ul>

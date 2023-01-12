@@ -5,16 +5,46 @@ This is a simple default template to create a localised Next.js/React project wi
 
 
 
-## Getting Started
+#### NPM DEV
+```
+git clone ...
 
-First, run the development server:
-
-```bash
+npm i
 npm run dev
-# or
-yarn dev
+
+open in browser: localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+#### NPM PROD
+```
+git clone ...
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+npm i
+npm run build
+npm start
+```
+
+```
+PM2 RUN COMMAND:
+pm2 start npm --name "test-dev" -- run startdev --watch
+pm2 start npm --name "test-prod" -- start --watch
+
+PM2 PIPELINE: 
+cd ~/HOSTDIR; npm run build; /usr/local/bin/pm2 restart test-prod
+```
+#### Docker
+```
+git clone ...
+
+docker-compose build --no-cache
+docker-compose up -d 
+
+DOCKER PIPELINE
+cd ~/HOSTDIR; docker-compose build --no-cache; docker-compose up -d
+```
+
+## Config
+### Next.js Frontend
+Set the API-URL & API-TOKEN in `next.config.js` and .env.local for npm-runner.
+
+Set the API-URL in docker-compose.yml for docker-runner.

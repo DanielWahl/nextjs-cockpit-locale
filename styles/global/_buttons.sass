@@ -5,6 +5,9 @@
 //             BUTTONS             -
 //----------------------------------
 
+button
+	font-family: "Plus Jakarta Sans", sans-serif
+	-webkit-appearance: none
 .button, .wp-block-button
 	margin: 1rem 0
 	cursor: pointer
@@ -66,29 +69,42 @@
 			box-shadow: 0 0 1px 4px rgba($primary,0.75)
 			outline: none
 
-	// Grey/NotActive Button
-	&.grey, &.notActive, &.is-style-grey .wp-block-button__link
-		background: $lightPrimary
-		color: $darkLight
-		border: none
-		padding: .5rem
-		margin: 1rem
-		border-radius: math.div($borderRadiusSize, 2)
-		cursor: pointer
-
-	//Lightgrey Button
-	&.lightgrey, &.is-style-lightgrey .wp-block-button__link
+	// Light
+	&.light
 		background: $lightBackground
-		color: $darkLight
+		border-radius: 3rem
+		padding: .75rem 1.5rem
 		border: none
-		padding: .5rem
-		margin: 1rem
-		border-radius: math.div($borderRadiusSize,2)
+		color: $primary
 		cursor: pointer
+		font-weight: 600
+		transition: $transition-default
+		font-size: 1rem
 
-	// Additional White border
-	&.whiteBorder, &.border--white, &.is-style-whiteborder .wp-block-button__link
-		border: 2px solid white
+		&:hover, &:focus
+			background: $primary
+			color: $lightBackground
+
+	&.arrow
+		padding-right: 4rem
+		@include pseudo($loc: after, $right: 1rem, $top: 50%)
+			background: url("/svgs/button-arrow.svg") no-repeat center center
+			width: 1.4rem
+			height: 1rem
+			transform: translate(-50%, -50%)
+			transition: $transition-default
+
+		&.paddingRight--small
+			padding-right: 1rem
+
+		&:hover, &:focus
+			outline: none
+			&::after
+				transform: translate(0, -50%)
+
+		&.arrow--down
+			&::after
+				transform: translate(-50%, -50%) rotate(90deg)
 
 	// Active State
 	&.active
@@ -101,10 +117,11 @@
 		color: $textLight
 		border: none
 		padding: 1rem 1.5rem
-		margin: 1rem
+		margin: 1rem 0
 		border-radius: $borderRadius
 		cursor: pointer
 		font-weight: 300
+		outline: none
 
 	&.primary--hover
 		transition: $transition-default
@@ -119,9 +136,19 @@
 		color: $textDark
 		border: none
 		padding: 1rem 1.5rem
-		margin: 1rem
+		margin: 1rem 0
 		border-radius: math.div($borderRadiusSize, 2)
 		cursor: pointer
+
+	&.secondaryLight
+		background: $secondaryLighter
+		color: $textDark
+		border: none
+		padding: 1rem 1.5rem
+		margin: 1rem 0
+		border-radius: 5rem
+		cursor: pointer
+
 
 	&.secondary-og--hover
 		transition: $transition-default
@@ -162,15 +189,49 @@
 		color: $primary
 
 
+
 	// Empty
 	&.empty
 		background: transparent
 		border: none
-		padding: 1rem
+		padding: 1rem 0
 		border-radius: math.div($borderRadiusSize, 2)
 		font-weight: 600
 		text-transform: uppercase
-		font-size: 1.8rem
+		font-size: 1rem
+		color: $accent
+		display: flex
+		gap: 1rem
+		outline: none
+		margin: 0
+
+		.icon
+			transform: translate(0, 1px)
+
+		&:hover
+			text-decoration: none
+
+			.icon
+				transform: translate(.5rem, 1px)
+
+				.arrow--goback
+					transform: translate(-1rem, 0)
+
+		&:focus-visible
+			box-shadow: $boxShadowFocus
+			outline: none
+			text-decoration: none
+
+		&--primary
+			color: $primary
+		&--textLight, &--white
+			color: $textLight
+			.icon, .icon path
+				color: $textLight
+				fill: $textLight
+
+
+
 
 	// Underline hover:
 	&.underline--hover
@@ -194,7 +255,7 @@
 		background: $primary
 		color: $textLight
 		padding: .5rem
-		margin: 1rem
+		margin: 1rem 0
 		border-radius: math.div($borderRadiusSize, 2)
 		cursor: pointer
 
@@ -215,7 +276,7 @@
 		background: $lightBackground
 		color: $darkLight
 		padding: .5rem
-		margin: 1rem
+		margin: 1rem 0
 		border-radius: math.div($borderRadiusSize, 2)
 		cursor: pointer
 
@@ -243,7 +304,9 @@
 		right: 0.3rem
 		font-size: .8rem
 
-
+	&[disabled], &:disabled
+		opacity: 0.5
+		cursor: not-allowed
 
 
 

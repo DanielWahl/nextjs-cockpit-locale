@@ -1,0 +1,74 @@
+@use "../abstracts" as *
+
+//----------------------------------
+//              ICONS              -
+//----------------------------------
+
+.icon
+	transition: $transition-default
+
+.iconButton
+	padding: .5rem
+	background: transparent
+	border-radius: 50%
+	text-decoration: none
+	-webkit-appearance: none
+	border: none
+	height: 2.75rem
+	width: 2.75rem
+	cursor: pointer
+
+	position: relative
+	display: flex
+	align-items: center
+	justify-content: center
+	transition: $transition-default
+
+	svg
+		height: 1.5rem
+		width: 1.5rem
+
+	svg, svg path
+		fill: $textDark
+		transition: $transition-default
+
+	&:hover, &:focus, &.active
+		background: $primary
+		text-decoration: none
+		-webkit-appearance: none
+		border: none
+
+		svg, svg path
+			fill: $white
+
+
+	&[data-tooltip]
+		@include pseudo($loc: after, $left: 50%, $top: 110%)
+			background: $darkBase
+			border-radius: $borderRadius
+			width: 100px
+			height: 30px
+			color: white
+			content: attr(data-tooltip)
+			display: flex
+			justify-content: center
+			align-items: center
+			opacity: 0
+			visibility: hidden
+			transform: translateX(-50%)
+			transition: $transition-default
+		&:hover
+			&::after
+				opacity: 1
+				visibility: visible
+
+
+.arrow
+	transition: $transition-default
+
+
+//  &.active
+		&:hover
+			background: transparent
+			svg, svg path
+				fill: $textDark

@@ -11,3 +11,14 @@
 	background-position: center
 	height: 49px
 	width: 70px
+
+	&__header
+		background: url("/images/logoheader.svg") no-repeat
+		background-size: contain
+		background-position: left
+		height: 58px
+		width: 300px
+
+		@include media-below(phone)
+			height: 37px
+			width: 109px

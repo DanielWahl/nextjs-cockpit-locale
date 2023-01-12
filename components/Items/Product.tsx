@@ -1,7 +1,7 @@
 import React from "react";
-import Props from "../../types/singleComponents/NormalProps";
+import { NormalProps } from "../../types/types";
 
-const Product = ({ data }: Props) => {
+const Product = ({ data }: NormalProps) => {
     return (
         <div className="product">
             <p>{data?.display}</p>

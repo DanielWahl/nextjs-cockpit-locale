@@ -1,7 +1,9 @@
 import React from "react";
-import Props from "../../types/singleComponents/NormalProps";
+import { NormalProps } from "../../types/types";
 
-const Divider = ({ data }: Props) => {
+const Divider = ({ data }: NormalProps) => {
+    if (!data) return null;
+
     return (
         <div className="component-text">
             <div dangerouslySetInnerHTML={{ __html: data?.text }} />

@@ -20,11 +20,14 @@
 
 	&.noWrap
 		flex-wrap: nowrap
+
 	&--gap
 		gap: 1rem
 
-	&--gap--big
-		gap: 2rem
+		@each $key, $value in $reusableSizes
+			&--#{$key}
+				gap: $value
+
 
 	&--no-gap
 		gap: 0

@@ -6,23 +6,44 @@
 //----------------------------------
 
 #footer, .footer__main
-	background: $black
-	color: $white
-	@include safearea()
+	background: $secondaryLighter
+	z-index: 1
+	position: relative
 
-	ul
-		@extend .flex, .flex--gap
+	@include media-below(phone)
+		padding-bottom: 2rem
 
-		li
-			list-style: none
-			&:before
-				content: none
+	.navLink
+		position: absolute
+		right: 1rem
+		transform: translateY(-2rem)
+		text-decoration: none
 
-			.navLink
-				color: white
+		.goToTopButton
+			color: $accent
+			width: 50px
+			height: 50px
+			display: flex
+			justify-content: center
+			align-items: center
+			border-radius: 50px
+			transition: $transition-default
+			transform: rotate(-90deg)
+			border: none
+			-webkit-appearance: none
+			outline: none
+			background: none
+			cursor: pointer
 
-				&:hover, &.active
-					font-weight: 600
-					text-decoration: none
+			svg
+				transform: translate(0, 2px)
+
+			&:hover, &:focus-visible, &.active
+				font-weight: 600
+				text-decoration: none
+				background: $accent
+				svg, svg path
+					color: $white
+					fill: $white
 
 
