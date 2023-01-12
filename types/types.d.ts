@@ -1,14 +1,6 @@
 import SiteSettings from "./settings/SiteSettings";
 import React from "react";
 
-export type TProjectCategory =
-    | "all"
-    | "sport"
-    | "lifestyle"
-    | "commercial"
-    | "social"
-    | "event";
-
 export interface ButtonProps {
     onClick?: (event?: React.MouseEvent<HTMLButtonElement>) => void;
     addClass?: string;
