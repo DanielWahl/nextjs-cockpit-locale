@@ -19,7 +19,7 @@ const HomePage: React.FC<PageProps> = (props) => {
                     "Next.js Cockpit Locale template"
                 }
             ></HTMLHead>
-            {props?.page && <Content {...props} data={props?.page} />}
+            <Content {...props} data={props?.page} />
         </Layout>
     );
 };

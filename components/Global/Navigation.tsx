@@ -3,11 +3,13 @@ import Link from "next/link";
 import { PageProps, PageEntry } from "../../types/types";
 import navigationAnim from "../../helpers/NavigationAnim";
 import useTranslation from "../../hooks/useTranslation";
+import { useRouter } from "next/router";
 
 const Navigation = (props: PageProps) => {
     const [lastScrollTop, setLastScrollTop] = useState<number>(0);
     const { locale } = useTranslation();
-    const slug = props.page?.slug;
+    const router = useRouter();
+    const slug = router.asPath.substring(1);
 
     useEffect(() => {
         const scrollEvent = () => {
@@ -24,7 +26,7 @@ const Navigation = (props: PageProps) => {
 
     const renderLogo = () => {
         return (
-            <Link href="" as={`/`}>
+            <Link href="/">
                 <div className="logo"> </div>
             </Link>
         );

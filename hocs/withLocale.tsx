@@ -2,7 +2,6 @@ import { NextPage } from "next";
 import { Locale } from "../translations/types";
 import { LocaleProvider } from "../context/LocaleContext";
 import ErrorPage from "../pages/404";
-import useTranslation from "../hooks/useTranslation";
 import { useRouter } from "next/router";
 
 interface LangProps {
