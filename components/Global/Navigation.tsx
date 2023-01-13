@@ -2,12 +2,10 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { PageProps, PageEntry } from "../../types/types";
 import navigationAnim from "../../helpers/NavigationAnim";
-import useTranslation from "../../hooks/useTranslation";
 import { useRouter } from "next/router";
 
 const Navigation = (props: PageProps) => {
     const [lastScrollTop, setLastScrollTop] = useState<number>(0);
-    const { locale } = useTranslation();
     const router = useRouter();
     const slug = router.asPath.substring(1);
 

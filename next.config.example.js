@@ -3,11 +3,6 @@ module.exports = {
     eslint: {
         ignoreDuringBuilds: true,
     },
-    i18n: {
-        locales: ["en", "lu"],
-        defaultLocale: "en",
-        localeDetection: false,
-    },
     env: {
         TOKEN: "insert",
         API: "insert",

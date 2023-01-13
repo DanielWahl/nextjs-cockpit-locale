@@ -4,7 +4,6 @@ import { PageProps } from "../types/types";
 import Fetch from "../helpers/Fetch";
 import HTMLHead from "../components/Global/HTMLHead";
 import React from "react";
-import withLocale from "../hocs/withLocale";
 import { GetServerSideProps } from "next";
 
 const ContactPage: React.FC<PageProps> = (props) => {
@@ -37,4 +36,4 @@ export const getServerSideProps: GetServerSideProps = async ({
     };
 };
 
-export default withLocale(ContactPage);
+export default ContactPage;

@@ -1,6 +1,5 @@
 import Layout from "../components/Layout/Layout";
 import { PageProps } from "../types/types";
-import withLocale from "../hocs/withLocale";
 import HTMLHead from "../components/Global/HTMLHead";
 import React from "react";
 import { GetServerSideProps } from "next";
@@ -45,4 +44,4 @@ export const getServerSideProps: GetServerSideProps = async ({
     };
 };
 
-export default withLocale(GalleryPage);
+export default GalleryPage;
