@@ -16,7 +16,7 @@ interface Props extends NormalProps {
 }
 
 const Button: FC<Props> = ({
-    className = "",
+    className = "white",
     color = "light",
     style = "full",
     onClick = () => null,
@@ -27,11 +27,14 @@ const Button: FC<Props> = ({
     disabled = false,
     target = "_self",
 }) => {
-    if (href && href !== "")
+    if ((href && href !== "") || (data?.url && data?.url !== ""))
         return (
-            <Link href={href} target={target}>
+            <Link
+                href={href !== "" ? href : data?.url ?? "/"}
+                target={target ?? data?.target}
+            >
                 <button className={`button ${color} ${style} ${className}`}>
-                    {text ?? data?.text ?? ""}
+                    {text !== "" ? text : data?.caption ?? data?.text ?? ""}
                     {content && content}
                 </button>
             </Link>
@@ -43,7 +46,7 @@ const Button: FC<Props> = ({
             onClick={onClick}
             disabled={disabled}
         >
-            {text ?? data?.text ?? ""}
+            {text !== "" ? text : data?.caption ?? data?.text ?? ""}
             {content && content}
         </button>
     );
